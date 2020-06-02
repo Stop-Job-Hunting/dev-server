@@ -25,6 +25,11 @@ import ResumesController from "./controllers/ResumesController";
 app.use("/sessions", new SessionsController().router)
 app.use("/resumes", new ResumesController().router)
 
+app.get("/", (req, res) => {
+  res.status(200)
+  res.send("I'm alive")
+  res.end()
+})
 
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
