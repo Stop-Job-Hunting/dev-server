@@ -14,13 +14,13 @@ app.use(cookieParser());
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(express.json());
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 // Connect to the database here
 database.connect();
 
 // Register our controllers here
-import SessionsController from "../server/controllers/SessionsController"
+import SessionsController from "./controllers/SessionsController"
 import ResumesController from "./controllers/ResumesController";
 app.use("/sessions", new SessionsController().router)
 app.use("/resumes", new ResumesController().router)
