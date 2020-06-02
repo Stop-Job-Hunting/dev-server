@@ -1,5 +1,6 @@
 import database from "./db/DbConfig";
 import { dbContext } from "./db/DbContext";
+import CLIENTURL from "./constants"
 
 
 const express = require("express");
@@ -9,9 +10,10 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const BuildJsonString = require("./buildJsonString");
 
+
 const app = express();
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: CLIENTURL }));
 app.use(express.json());
 
 const port = process.env.PORT || 3001;
