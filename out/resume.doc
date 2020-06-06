@@ -5,10 +5,10 @@
 
 
   <o:DocumentProperties>
-    <o:Title>Resume for lexidog</o:Title>
-    <o:Author>lexidog</o:Author>
+    <o:Title>Resume for Koby</o:Title>
+    <o:Author>Koby</o:Author>
     <o:Keywords>resume;CV</o:Keywords>
-    <o:LastAuthor>lexidog</o:LastAuthor>
+    <o:LastAuthor>Koby</o:LastAuthor>
     <o:Revision>1</o:Revision>
     <o:TotalTime>60</o:TotalTime>
     <o:Created>2015-12-16T17:38:00Z</o:Created>
@@ -486,7 +486,7 @@
         <w:r>
 
 
-          <w:t>lexidog</w:t>
+          <w:t>Koby</w:t>
         </w:r>
       </w:p>
 
@@ -497,20 +497,20 @@
             <w:sz-cs w:val="20"/>
           </w:rPr>
         </w:pPr>
-        <w:hlink w:dest="mailto:34334">
+        <w:hlink w:dest="mailto:koby@roomservice.dev">
           <w:r wsp:rsidRPr="003876BF">
             <w:rPr>
               <w:rStyle w:val="Hyperlink"/>
               <w:sz w:val="16"/>
             </w:rPr>
-            <w:t>34334<w:br/></w:t>
+            <w:t>koby@roomservice.dev<w:br/></w:t>
           </w:r>
         </w:hlink>
         <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0">
           <w:rPr>
             <w:sz w:val="16"/>
           </w:rPr>
-          <w:t>77<w:br/></w:t>
+          <w:t>208-422-4536<w:br/></w:t>
         </w:r>
         <w:hlink w:dest="">
           <w:r wsp:rsidRPr="003876BF">
