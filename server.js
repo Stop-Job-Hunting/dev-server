@@ -22,10 +22,12 @@ const port = process.env.PORT || 3001;
 database.connect();
 
 // Register our controllers here
-import SessionsController from "./controllers/SessionsController"
+import SessionsController from "./controllers/SessionsController";
 import ResumesController from "./controllers/ResumesController";
+import WorksController from "./controllers/WorksController";
 app.use("/sessions", new SessionsController().router)
 app.use("/resumes", new ResumesController().router)
+app.use("/works", new WorksController().router)
 
 app.get("/", (req, res) => {
   res.status(200)

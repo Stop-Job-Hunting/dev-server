@@ -12,6 +12,34 @@ const COOKIE_OPTIONS = {
   // 30 days
   expires: new Date(Date.now() + 60 * 60 * 24 * 1000 * 30),
 };
+
+// async function validateUser(req, res, next) {
+//   try {
+//     const isThereToken = req.cookies["session-token"];
+//     if (!isThereToken) {
+//       res.status(401);
+//       throw console.error("User not logged in");
+//     }
+//     // grab their username - the server must do this
+//     await dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
+//       if (err) throw console.error(err);
+
+//       // @ts-ignore
+//       if (!session || !session.loggedIn) {
+//         return res.status(401).send("unauthorized");
+//       }
+
+//       // Their particular username to store with the data
+//       // @ts-ignore
+//       const username = session.username;
+//       res.body = username;
+//       res.status(200);
+//       return username;
+//     });
+//   } catch (error) {
+//     next(error)
+//   }
+// }
 export default class SessionsController {
   constructor() {
     this.router = express
@@ -146,6 +174,35 @@ export default class SessionsController {
       }
     } catch (error) {
 
+    }
+  }
+
+  async validateUser(req, res, next) {
+    try {
+      const isThereToken = req.cookies["session-token"];
+      if (!isThereToken) {
+        res.status(401);
+        throw console.error("User not logged in");
+      }
+      // grab their username - the server must do this
+      await dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
+        if (err) throw console.error(err);
+
+        // @ts-ignore
+        if (!session || !session.loggedIn) {
+          return res.status(401).send("unauthorized");
+        }
+
+        // Their particular username to store with the data
+        // @ts-ignore
+        const username = session.username;
+        console.log("In validate User - username is", username)
+        // res.body = username;
+        res.status(200);
+        return username;
+      });
+    } catch (error) {
+      next(error)
     }
   }
 }
