@@ -177,32 +177,62 @@ export default class SessionsController {
     }
   }
 
-  async validateUser(req, res, next) {
+  async validateUser(req, res) {
     try {
+
       const isThereToken = req.cookies["session-token"];
       if (!isThereToken) {
-        res.status(401);
-        throw console.error("User not logged in");
+        return "";
       }
       // grab their username - the server must do this
       await dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
+        let username = "";
         if (err) throw console.error(err);
 
         // @ts-ignore
         if (!session || !session.loggedIn) {
-          return res.status(401).send("unauthorized");
+          return username
         }
 
         // Their particular username to store with the data
         // @ts-ignore
-        const username = session.username;
+        username = session.username;
         console.log("In validate User - username is", username)
         // res.body = username;
-        res.status(200);
-        return username;
+        return (username);
       });
+
     } catch (error) {
-      next(error)
+      console.log(error)
     }
   }
+
+  // async validateUser(req, res, next) {
+  //   try {
+  //     const isThereToken = req.cookies["session-token"];
+  //     if (!isThereToken) {
+  //       res.status(401);
+  //       throw console.error("User not logged in");
+  //     }
+  //     // grab their username - the server must do this
+  //     await dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
+  //       if (err) throw console.error(err);
+
+  //       // @ts-ignore
+  //       if (!session || !session.loggedIn) {
+  //         return res.status(401).send("unauthorized");
+  //       }
+
+  //       // Their particular username to store with the data
+  //       // @ts-ignore
+  //       const username = session.username;
+  //       console.log("In validate User - username is", username)
+  //       // res.body = username;
+  //       res.status(200);
+  //       return username;
+  //     });
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
 }

@@ -2,6 +2,7 @@ import BaseController from "../utils/BaseController"
 import { dbContext } from "../db/DbContext"
 import express from "express"
 import SessionsController from "../controllers/SessionsController"
+import { validationService } from "../service/ValidationService"
 
 import fs from "fs"
 import { exec } from "child_process"
@@ -12,99 +13,65 @@ export default class WorksController {
       .Router()
       .get("/all-work", this.getAllWork)
       .post("/new-work", this.addNewWork)
+      .delete("/delete/:workId", this.deleteByWorkId)
   }
+
+
 
   async getAllWork(req, res, next) {
     try {
-      const isThereToken = req.cookies["session-token"];
-      if (!isThereToken) {
-        res.status(401);
-        throw console.error("User not logged in");
-      }
-      // grab their username - the server must do this
-      await dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
+
+      // Their particular username to store with the data
+      let username = await validationService.validateUser(req);
+
+      // TODO:  if validateUser returns empty username, what to do
+
+      dbContext.Work.find({ username: username }, function (err, documents) {
         if (err) throw console.error(err);
-
-        // @ts-ignore
-        if (!session || !session.loggedIn) {
-          return res.status(401).send("unauthorized");
-        }
-
-        // Their particular username to store with the data
-        // @ts-ignore
-        const username = session.username;
-        req.body.username = username;
-        dbContext.Work.find({ username: username }, function (err, documents) {
-          if (err) throw console.error(err);
-          console.log("found the work!", documents);
-          return res.send(documents);
-        });
-
-        res.status(200);
+        console.log("found the work!", documents);
+        return res.send(documents);
       });
+
+      res.status(200);
+
     } catch (error) {
       next(error)
     }
   }
-
-
-  // async getAllWork(req, res, next) {
-  //   try {
-  //     // Their particular username to store with the data
-  //     // @ts-ignore
-  //     const thisSession = new SessionsController()
-  //     const username = await thisSession.validateUser(req, res, next);
-  //     console.log("in get all work - user name is: ", username)
-
-  //     // TODO:  if validateUser returns 401, does it come here?
-
-  //     dbContext.Work.find({ username: username }, function (err, documents) {
-  //       if (err) throw console.error(err);
-  //       console.log("found the work!", documents);
-  //       return res.send(documents);
-  //     });
-
-  //     res.status(200);
-
-  //   } catch (error) {
-  //     next(error)
-  //   }
-  // }
 
   async addNewWork(req, res, next) {
-    console.log(req.body)
+
     try {
-      const isThereToken = req.cookies["session-token"];
-      if (!isThereToken) {
-        res.status(401);
-        throw console.error("User not logged in");
-      }
-      // grab their username - the server must do this
-      dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
+      // Their particular username to store with the data
+      let username = await validationService.validateUser(req);
 
-        if (err) throw console.error(err);
+      req.body.username = username;
+      console.log(req.body)
+      dbContext.Work.create(req.body,
+        function (err, document) {
+          if (err) throw console.error(err);
+          console.log(document)
+        });
 
-        // @ts-ignore
-        if (!session || !session.loggedIn) {
-          return res.status(401).send("unauthorized");
-        }
-
-        // Their particular username to store with the data
-        // @ts-ignore
-        const username = session.username;
-        req.body.username = username;
-        console.log(req.body)
-        dbContext.Work.create(req.body,
-          function (err, document) {
-            if (err) throw console.error(err);
-            console.log(document)
-          });
-
-        res.status(200);
-      });
+      res.status(200);
     } catch (error) {
       next(error)
     }
   }
 
+  async deleteByWorkId(req, res, next) {
+
+    try {
+      // Their particular username to store with the data
+      let thisUser = await validationService.validateUser(req);
+
+      await dbContext.Work.findByIdAndRemove({ username: thisUser, _id: req.params.workId });
+
+      res.status(200);
+    } catch (error) {
+      next(error)
+    }
+  }
 }
+
+
