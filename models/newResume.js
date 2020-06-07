@@ -24,6 +24,8 @@ const Resume = new Schema(
     work: [{
       company: { type: String },
       position: { type: String },
+      city: { type: String },
+      state: { type: String },
       website: { type: String },
       startDate: { type: String },
       endDate: { type: String },

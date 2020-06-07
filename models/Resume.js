@@ -16,7 +16,19 @@ const Resume = new Schema(
     countryCode: { type: String },
     region: { type: String },
     email: { type: String, required: true },
-    work: [{ type: String }]
+    work: [{
+      company: { type: String },
+      position: { type: String },
+      city: { type: String },
+      state: { type: String },
+      website: { type: String },
+      startDate: { type: String },
+      endDate: { type: String },
+      summary: { type: String },
+      highlights: [
+        { type: String }
+      ]
+    }]
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
