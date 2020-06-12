@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const Profile = new Schema(
   {
     subs: [{ type: String, unique: false, required: false }],
+    progress: { type: Number, required: true, default: 0 },
     hashPassword: { type: String, required: true },
     username: { type: String, required: true },
     email: { type: String, unique: false },

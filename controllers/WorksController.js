@@ -20,6 +20,7 @@ export default class WorksController {
     try {
       // Their particular username to store with the data
       let username = await validationService.validateUser(req);
+      if (username === "") return (res.status(401))
 
       // TODO:  if validateUser returns empty username, what to do
 
@@ -39,6 +40,7 @@ export default class WorksController {
     try {
       // Their particular username to store with the data
       let username = await validationService.validateUser(req);
+      if (username === "") return (res.status(401))
 
       req.body.username = username;
       console.log(req.body);
@@ -60,6 +62,7 @@ export default class WorksController {
     try {
       // Their particular username to store with the data
       let thisUser = await validationService.validateUser(req);
+      if (thisUser === "") return (res.status(401))
 
       await dbContext.Work.findByIdAndRemove({
         username: thisUser,

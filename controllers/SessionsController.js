@@ -1,6 +1,7 @@
 import BaseController from "../utils/BaseController"
 import { dbContext } from "../db/DbContext"
 import express from "express"
+import { validationService } from "../service/ValidationService"
 const { nanoid } = require("nanoid");
 const bcrypt = require("bcrypt");
 
@@ -13,33 +14,7 @@ const COOKIE_OPTIONS = {
   expires: new Date(Date.now() + 60 * 60 * 24 * 1000 * 30),
 };
 
-// async function validateUser(req, res, next) {
-//   try {
-//     const isThereToken = req.cookies["session-token"];
-//     if (!isThereToken) {
-//       res.status(401);
-//       throw console.error("User not logged in");
-//     }
-//     // grab their username - the server must do this
-//     await dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
-//       if (err) throw console.error(err);
 
-//       // @ts-ignore
-//       if (!session || !session.loggedIn) {
-//         return res.status(401).send("unauthorized");
-//       }
-
-//       // Their particular username to store with the data
-//       // @ts-ignore
-//       const username = session.username;
-//       res.body = username;
-//       res.status(200);
-//       return username;
-//     });
-//   } catch (error) {
-//     next(error)
-//   }
-// }
 export default class SessionsController {
   constructor() {
     this.router = express
@@ -48,6 +23,7 @@ export default class SessionsController {
       .get("/am-i-logged-in", this.amILoggedIn)
       .post("/login", this.login)
       .post("/register", this.register)
+      .post("/update-progress", this.updateProgress)
   }
 
   async logout(req, res, next) {
@@ -117,6 +93,20 @@ export default class SessionsController {
     }
   }
 
+  async updateProgress(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    await dbContext.Profile.find({ username: username }, function (err, documents) {
+      if (err) throw console.error(err);
+
+      if (req.body.progress > documents[0].progress) {
+        dbContext.Profile.findByIdAndUpdate(documents[0]._id, req.body, { new: true });
+      }
+      return res.send(documents);
+    });
+    next()
+  }
+
   async register(req, res, next) {
     try {
       const username = req.body.username;
@@ -130,6 +120,7 @@ export default class SessionsController {
         subs: `${Math.random()}`,
         hashPassword: hash,
         username: req.body.username,
+        progress: 0,
         loggedIn: true,
       };
 
@@ -173,7 +164,7 @@ export default class SessionsController {
         res.status(200).json(false);
       }
     } catch (error) {
-
+      console.log("somethings bad happening", error)
     }
   }
 
