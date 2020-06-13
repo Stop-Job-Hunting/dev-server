@@ -57,7 +57,7 @@ export default class SessionsController {
 
       // grab username from database
       //TODO:  use the User model instead of Profile
-      dbContext.Profile.findOne({ username: username }, function (err, loginData) {
+      dbContext.User.findOne({ username: username }, function (err, loginData) {
         if (err) throw console.error(err);
 
         if (!loginData) {
@@ -102,8 +102,7 @@ export default class SessionsController {
       const password = req.body.password;
 
       const hash = bcrypt.hashSync(password, 10);
-      // TODO: save this to database instead of fake database
-      // users[username] = hash;
+
       console.log("password when register is:", hash);
       let data = {
         subs: `${Math.random()}`,
@@ -113,13 +112,12 @@ export default class SessionsController {
         loggedIn: true,
       };
       //TODO:  use the User model instead of Profile
-      dbContext.Profile.create(data).catch((err) => {
+      dbContext.User.create(data).catch((err) => {
         if (err) throw console.error(err);
       });
 
       // Creating session
       const token = nanoid();
-      // TODO: save session token to database instead of fake database
 
       let tokenData = {
         username: req.body.username,
@@ -190,12 +188,11 @@ export default class SessionsController {
     let username = await validationService.validateUser(req);
     if (username === "") return (res.status(401))
 
-    //TODO:  use the User model instead of Profile
-    await dbContext.Profile.find({ username: username }, function (err, documents) {
+    await dbContext.User.find({ username: username }, function (err, documents) {
       if (err) throw console.error(err);
-      //TODO:  use the User model instead of Profile
+
       if (req.body.progress > documents[0].progress) {
-        dbContext.Profile.findByIdAndUpdate(documents[0]._id, req.body, { new: true });
+        dbContext.User.findByIdAndUpdate(documents[0]._id, req.body, { new: true });
       }
       return res.send(documents);
     });
