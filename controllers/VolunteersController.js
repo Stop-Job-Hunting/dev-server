@@ -13,6 +13,7 @@ export default class VolunteersController {
       .get("/all-volunteer", this.getAllVolunteer)
       .post("/new-volunteer", this.addNewVolunteer)
       .delete("/delete/:volunteerId", this.deleteByVolunteerId)
+      .put("/update/:volunteerId", this.update)
   }
 
   async getAllVolunteer(req, res, next) {
@@ -70,6 +71,19 @@ export default class VolunteersController {
       res.status(200);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Volunteer.findByIdAndUpdate(req.params.volunteerId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }

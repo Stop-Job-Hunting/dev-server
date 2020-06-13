@@ -14,6 +14,7 @@ export default class WorksController {
       .get("/all-work", this.getAllWork)
       .post("/new-work", this.addNewWork)
       .delete("/delete/:workId", this.deleteByWorkId)
+      .put("/update/:workId", this.update)
   }
 
 
@@ -73,6 +74,19 @@ export default class WorksController {
       res.status(200);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Work.findByIdAndUpdate(req.params.workId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }

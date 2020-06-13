@@ -13,6 +13,7 @@ export default class AwardsController {
       .get("/all-award", this.getAllAward)
       .post("/new-award", this.addNewAward)
       .delete("/delete/:awardId", this.deleteByAwardId)
+      .put("/update/:awardId", this.update)
   }
 
   async getAllAward(req, res, next) {
@@ -70,6 +71,19 @@ export default class AwardsController {
       res.status(200);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Award.findByIdAndUpdate(req.params.awardId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }

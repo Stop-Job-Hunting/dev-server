@@ -13,6 +13,7 @@ export default class EducationsController {
       .get("/all-education", this.getAllEducation)
       .post("/new-education", this.addNewEducation)
       .delete("/delete/:educationId", this.deleteByEducationId)
+      .put("/update/:educationId", this.update)
   }
 
   async getAllEducation(req, res, next) {
@@ -70,6 +71,19 @@ export default class EducationsController {
       res.status(200);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Education.findByIdAndUpdate(req.params.educationId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }

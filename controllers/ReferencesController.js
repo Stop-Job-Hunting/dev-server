@@ -13,6 +13,7 @@ export default class ReferencesController {
       .get("/all-reference", this.getAllReference)
       .post("/new-reference", this.addNewReference)
       .delete("/delete/:referenceId", this.deleteByReferenceId)
+      .put("/update/:referenceId", this.update)
   }
 
   async getAllReference(req, res, next) {
@@ -70,6 +71,19 @@ export default class ReferencesController {
       res.status(200);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Reference.findByIdAndUpdate(req.params.referenceId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }
