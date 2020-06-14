@@ -7,6 +7,7 @@ const Education = new Schema(
     isDeleted: { type: Boolean, default: false },
     institution: { type: String },
     area: { type: String },
+    location: { type: String },
     studyType: { type: String },
     startDate: { type: String },
     endDate: { type: String },

@@ -51,6 +51,7 @@ export default class EducationsController {
         function (err, document) {
           if (err) throw console.error(err);
           console.log(document)
+          res.send(document)
         });
 
       res.status(200);
@@ -69,6 +70,7 @@ export default class EducationsController {
       await dbContext.Education.findByIdAndRemove({ username: thisUser, _id: req.params.educationId });
 
       res.status(200);
+      res.send(true);
     } catch (error) {
       next(error)
     }
@@ -82,6 +84,7 @@ export default class EducationsController {
     try {
       let document = dbContext.Education.findByIdAndUpdate(req.params.educationId, req.body, { new: true });
       res.send(document);
+      res.status(200);
     } catch (e) {
       next(e);
     }
