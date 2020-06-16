@@ -1,3 +1,4 @@
+// TODO: don't need this anymore, this schema is in Basics
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 

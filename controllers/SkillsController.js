@@ -51,6 +51,7 @@ export default class SkillsController {
         function (err, document) {
           if (err) throw console.error(err);
           console.log(document)
+          res.send(document);
         });
 
       res.status(200);

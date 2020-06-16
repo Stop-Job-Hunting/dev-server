@@ -13,7 +13,7 @@ export default class BasicsController {
       .get("/all-basic", this.getAllBasic)
       .post("/new-basic", this.addNewBasic)
       .delete("/delete/:basicId", this.deleteByBasicId)
-      .put("/update/:basicId", this.update)
+      .put("/update", this.update)
   }
 
   async getAllBasic(req, res, next) {
@@ -51,6 +51,7 @@ export default class BasicsController {
         function (err, document) {
           if (err) throw console.error(err);
           console.log(document)
+          res.send(document)
         });
 
       res.status(200);
@@ -80,7 +81,7 @@ export default class BasicsController {
     if (username === "") return (res.status(401))
 
     try {
-      let document = dbContext.Basic.findByIdAndUpdate(req.params.basicId, req.body, { new: true });
+      let document = dbContext.Basic.findOneAndUpdate({ username: username }, req.body, { new: true });
       res.send(document);
     } catch (e) {
       next(e);
