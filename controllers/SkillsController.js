@@ -13,6 +13,7 @@ export default class SkillsController {
       .get("/all-skill", this.getAllSkill)
       .post("/new-skill", this.addNewSkill)
       .delete("/delete/:skillId", this.deleteBySkillId)
+      .put("/update/:skillId", this.update)
   }
 
   async getAllSkill(req, res, next) {
@@ -50,6 +51,7 @@ export default class SkillsController {
         function (err, document) {
           if (err) throw console.error(err);
           console.log(document)
+          res.send(document);
         });
 
       res.status(200);
@@ -70,6 +72,19 @@ export default class SkillsController {
       res.status(200);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Skill.findByIdAndUpdate(req.params.skillId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }

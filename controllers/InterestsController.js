@@ -13,6 +13,7 @@ export default class InterestsController {
       .get("/all-interest", this.getAllInterest)
       .post("/new-interest", this.addNewInterest)
       .delete("/delete/:interestId", this.deleteByInterestId)
+      .put("/update/:interestsId", this.update)
   }
 
   async getAllInterest(req, res, next) {
@@ -70,6 +71,19 @@ export default class InterestsController {
       res.status(200);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Interest.findByIdAndUpdate(req.params.interestsId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }

@@ -56,7 +56,8 @@ export default class SessionsController {
       const password = req.body.password;
 
       // grab username from database
-      dbContext.Profile.findOne({ username: username }, function (err, loginData) {
+      //TODO:  use the User model instead of Profile
+      dbContext.User.findOne({ username: username }, function (err, loginData) {
         if (err) throw console.error(err);
 
         if (!loginData) {
@@ -93,19 +94,7 @@ export default class SessionsController {
     }
   }
 
-  async updateProgress(req, res, next) {
-    // res.status(200)
-    let username = await validationService.validateUser(req);
-    await dbContext.Profile.find({ username: username }, function (err, documents) {
-      if (err) throw console.error(err);
 
-      if (req.body.progress > documents[0].progress) {
-        dbContext.Profile.findByIdAndUpdate(documents[0]._id, req.body, { new: true });
-      }
-      return res.send(documents);
-    });
-    next()
-  }
 
   async register(req, res, next) {
     try {
@@ -113,8 +102,7 @@ export default class SessionsController {
       const password = req.body.password;
 
       const hash = bcrypt.hashSync(password, 10);
-      // TODO: save this to database instead of fake database
-      // users[username] = hash;
+
       console.log("password when register is:", hash);
       let data = {
         subs: `${Math.random()}`,
@@ -123,14 +111,13 @@ export default class SessionsController {
         progress: 0,
         loggedIn: true,
       };
-
-      dbContext.Profile.create(data).catch((err) => {
+      //TODO:  use the User model instead of Profile
+      dbContext.User.create(data).catch((err) => {
         if (err) throw console.error(err);
       });
 
       // Creating session
       const token = nanoid();
-      // TODO: save session token to database instead of fake database
 
       let tokenData = {
         username: req.body.username,
@@ -141,10 +128,6 @@ export default class SessionsController {
         if (err) throw console.error(err);
       });
 
-      // sessions[token] = {
-      //   username,
-      // };
-
       // Creating a cookie
       res.cookie("session-token", token, COOKIE_OPTIONS);
 
@@ -152,6 +135,8 @@ export default class SessionsController {
     } catch (error) {
 
     }
+
+
   }
 
   async amILoggedIn(req, res, next) {
@@ -198,32 +183,19 @@ export default class SessionsController {
     }
   }
 
-  // async validateUser(req, res, next) {
-  //   try {
-  //     const isThereToken = req.cookies["session-token"];
-  //     if (!isThereToken) {
-  //       res.status(401);
-  //       throw console.error("User not logged in");
-  //     }
-  //     // grab their username - the server must do this
-  //     await dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
-  //       if (err) throw console.error(err);
+  async updateProgress(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
 
-  //       // @ts-ignore
-  //       if (!session || !session.loggedIn) {
-  //         return res.status(401).send("unauthorized");
-  //       }
+    await dbContext.User.find({ username: username }, function (err, documents) {
+      if (err) throw console.error(err);
 
-  //       // Their particular username to store with the data
-  //       // @ts-ignore
-  //       const username = session.username;
-  //       console.log("In validate User - username is", username)
-  //       // res.body = username;
-  //       res.status(200);
-  //       return username;
-  //     });
-  //   } catch (error) {
-  //     next(error)
-  //   }
-  // }
+      if (req.body.progress > documents[0].progress) {
+        dbContext.User.findByIdAndUpdate(documents[0]._id, req.body, { new: true });
+      }
+      return res.send(documents);
+    });
+    next()
+  }
 }

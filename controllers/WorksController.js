@@ -13,7 +13,8 @@ export default class WorksController {
       .Router()
       .get("/all-work", this.getAllWork)
       .post("/new-work", this.addNewWork)
-      .delete("/delete/:workId", this.deleteByWorkId);
+      .delete("/delete/:workId", this.deleteByWorkId)
+      .put("/update/:workId", this.update)
   }
 
   async getAllWork(req, res, next) {
@@ -43,11 +44,21 @@ export default class WorksController {
       if (username === "") return (res.status(401))
 
       req.body.username = username;
+<<<<<<< HEAD
       console.log(req.body);
       dbContext.Work.create(req.body, function (err, document) {
         if (err) throw console.error(err);
         console.log(document);
       });
+=======
+      console.log(req.body)
+      dbContext.Work.create(req.body,
+        function (err, document) {
+          if (err) throw console.error(err);
+          console.log(document)
+          res.send(document);
+        });
+>>>>>>> 15f79133088e8277a0e92d1eaed6e12916c93271
 
       res.status(200);
     } catch (error) {
@@ -72,6 +83,19 @@ export default class WorksController {
       res.status(200);
     } catch (error) {
       next(error);
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Work.findByIdAndUpdate(req.params.workId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }

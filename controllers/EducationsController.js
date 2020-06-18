@@ -13,6 +13,7 @@ export default class EducationsController {
       .get("/all-education", this.getAllEducation)
       .post("/new-education", this.addNewEducation)
       .delete("/delete/:educationId", this.deleteByEducationId)
+      .put("/update/:educationId", this.update)
   }
 
   async getAllEducation(req, res, next) {
@@ -50,6 +51,7 @@ export default class EducationsController {
         function (err, document) {
           if (err) throw console.error(err);
           console.log(document)
+          res.send(document)
         });
 
       res.status(200);
@@ -68,8 +70,23 @@ export default class EducationsController {
       await dbContext.Education.findByIdAndRemove({ username: thisUser, _id: req.params.educationId });
 
       res.status(200);
+      res.send(true);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Education.findByIdAndUpdate(req.params.educationId, req.body, { new: true });
+      res.send(document);
+      res.status(200);
+    } catch (e) {
+      next(e);
     }
   }
 }

@@ -6,17 +6,17 @@ import { validationService } from "../service/ValidationService"
 import fs from "fs"
 import { exec } from "child_process"
 
-export default class PublicationsController {
+export default class LocationsController {
   constructor() {
     this.router = express
       .Router()
-      .get("/all-publication", this.getAllPublication)
-      .post("/new-publication", this.addNewPublication)
-      .delete("/delete/:publicationId", this.deleteByPublicationId)
-      .put("/update/:publicationId", this.update)
+      .get("/all-location", this.getAllLocation)
+      .post("/new-location", this.addNewLocation)
+      .delete("/delete/:locationId", this.deleteByLocationId)
+      .put("/update/:locationId", this.update)
   }
 
-  async getAllPublication(req, res, next) {
+  async getAllLocation(req, res, next) {
     try {
 
       // Their particular username to store with the data
@@ -25,9 +25,9 @@ export default class PublicationsController {
 
       // TODO:  if validateUser returns empty username, what to do
 
-      dbContext.Publication.find({ username: username }, function (err, documents) {
+      dbContext.Location.find({ username: username }, function (err, documents) {
         if (err) throw console.error(err);
-        console.log("found the publication!", documents);
+        console.log("found the location!", documents);
         return res.send(documents);
       });
 
@@ -38,7 +38,7 @@ export default class PublicationsController {
     }
   }
 
-  async addNewPublication(req, res, next) {
+  async addNewLocation(req, res, next) {
 
     try {
       // Their particular username to store with the data
@@ -47,7 +47,7 @@ export default class PublicationsController {
 
       req.body.username = username;
       console.log(req.body)
-      dbContext.Publication.create(req.body,
+      dbContext.Location.create(req.body,
         function (err, document) {
           if (err) throw console.error(err);
           console.log(document)
@@ -59,14 +59,14 @@ export default class PublicationsController {
     }
   }
 
-  async deleteByPublicationId(req, res, next) {
+  async deleteByLocationId(req, res, next) {
 
     try {
       // Their particular username to store with the data
       let thisUser = await validationService.validateUser(req);
       if (thisUser === "") return (res.status(401))
 
-      await dbContext.Award.findByIdAndRemove({ username: thisUser, _id: req.params.publicationId });
+      await dbContext.Location.findByIdAndRemove({ username: thisUser, _id: req.params.locationId });
 
       res.status(200);
     } catch (error) {
@@ -80,7 +80,7 @@ export default class PublicationsController {
     if (username === "") return (res.status(401))
 
     try {
-      let document = dbContext.Publication.findByIdAndUpdate(req.params.publicationId, req.body, { new: true });
+      let document = dbContext.Location.findByIdAndUpdate(req.params.locationId, req.body, { new: true });
       res.send(document);
     } catch (e) {
       next(e);

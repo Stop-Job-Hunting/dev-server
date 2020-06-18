@@ -13,6 +13,7 @@ export default class LanguagesController {
       .get("/all-language", this.getAllLanguage)
       .post("/new-language", this.addNewLanguage)
       .delete("/delete/:languageId", this.deleteByLanguageId)
+      .put("/update/:languageId", this.update)
   }
 
   async getAllLanguage(req, res, next) {
@@ -70,6 +71,19 @@ export default class LanguagesController {
       res.status(200);
     } catch (error) {
       next(error)
+    }
+  }
+
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
+
+    try {
+      let document = dbContext.Language.findByIdAndUpdate(req.params.languageId, req.body, { new: true });
+      res.send(document);
+    } catch (e) {
+      next(e);
     }
   }
 }
