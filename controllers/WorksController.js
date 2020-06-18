@@ -14,14 +14,14 @@ export default class WorksController {
       .get("/all-work", this.getAllWork)
       .post("/new-work", this.addNewWork)
       .delete("/delete/:workId", this.deleteByWorkId)
-      .put("/update/:workId", this.update)
+      .put("/update/:workId", this.update);
   }
 
   async getAllWork(req, res, next) {
     try {
       // Their particular username to store with the data
       let username = await validationService.validateUser(req);
-      if (username === "") return (res.status(401))
+      if (username === "") return res.status(401);
 
       // TODO:  if validateUser returns empty username, what to do
 
@@ -41,24 +41,35 @@ export default class WorksController {
     try {
       // Their particular username to store with the data
       let username = await validationService.validateUser(req);
-      if (username === "") return (res.status(401))
+      if (username === "") return res.status(401);
 
       req.body.username = username;
-<<<<<<< HEAD
       console.log(req.body);
+
+      // creates the new work item
       dbContext.Work.create(req.body, function (err, document) {
         if (err) throw console.error(err);
-        console.log(document);
-      });
-=======
-      console.log(req.body)
-      dbContext.Work.create(req.body,
-        function (err, document) {
+        let workDocID = document._id;
+
+        // add to the end of Profile workIndexArray
+        // grab workIndexArray document
+        dbContext.Profile.find({ username: username }, function (err, doc) {
           if (err) throw console.error(err);
-          console.log(document)
-          res.send(document);
+
+          let currentIndexArray = doc[0].workIndexArray;
+          let updatedIndexArray = currentIndexArray.concat(workDocID);
+
+          dbContext.Profile.findOneAndUpdate(
+            { username: username },
+            { workIndexArray: updatedIndexArray },
+            { new: true },
+            function (err, doc) {
+              console.log("updated doc: ", doc);
+            }
+          );
         });
->>>>>>> 15f79133088e8277a0e92d1eaed6e12916c93271
+        res.send(document);
+      });
 
       res.status(200);
     } catch (error) {
@@ -73,7 +84,7 @@ export default class WorksController {
     try {
       // Their particular username to store with the data
       let thisUser = await validationService.validateUser(req);
-      if (thisUser === "") return (res.status(401))
+      if (thisUser === "") return res.status(401);
 
       await dbContext.Work.findByIdAndRemove({
         username: thisUser,
@@ -89,10 +100,14 @@ export default class WorksController {
   async update(req, res, next) {
     // res.status(200)
     let username = await validationService.validateUser(req);
-    if (username === "") return (res.status(401))
+    if (username === "") return res.status(401);
 
     try {
-      let document = dbContext.Work.findByIdAndUpdate(req.params.workId, req.body, { new: true });
+      let document = dbContext.Work.findByIdAndUpdate(
+        req.params.workId,
+        req.body,
+        { new: true }
+      );
       res.send(document);
     } catch (e) {
       next(e);

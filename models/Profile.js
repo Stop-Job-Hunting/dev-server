@@ -5,10 +5,11 @@ const Profile = new Schema(
   {
     subs: [{ type: String, unique: false, required: false }],
     progress: { type: Number, required: true, default: 0 },
+    workIndexArray: [{ type: String }],
     hashPassword: { type: String, required: true },
     username: { type: String, required: true },
     email: { type: String, unique: false },
-    _queryable: { type: Boolean, default: true }
+    _queryable: { type: Boolean, default: true },
     // NOTE If you wish to add additional public properties for profiles do so here
   },
   { timestamps: true, toJSON: { virtuals: true } }
