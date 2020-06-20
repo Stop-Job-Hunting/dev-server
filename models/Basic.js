@@ -13,6 +13,7 @@ const Basic = new Schema(
     phone: { type: String },
     website: { type: String },
     summary: { type: String },
+    skills: [{ type: String }],
     location: {
       postalCode: { type: String },
       city: { type: String },

@@ -80,11 +80,11 @@ export default class BasicsController {
     let username = await validationService.validateUser(req);
     if (username === "") return (res.status(401))
 
-    try {
-      let document = dbContext.Basic.findOneAndUpdate({ username: username }, req.body, { new: true });
-      res.send(document);
-    } catch (e) {
-      next(e);
-    }
+    dbContext.Basic.findOneAndUpdate({ username: username }, req.body, { new: true }, (err, document) => {
+      if (err) throw err
+      console.log(document)
+    });
+
+
   }
 }
