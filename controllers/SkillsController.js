@@ -81,7 +81,6 @@ export default class SkillsController {
     let username = await validationService.validateUser(req);
     if (username === "") return (res.status(401))
 
-
     dbContext.Skill.findByIdAndUpdate(req.params.skillId, req.body, { new: true }, (err, document) => {
       if (err) throw err
       console.log(document)
