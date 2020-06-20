@@ -76,16 +76,17 @@ export default class SkillsController {
   }
   //TODO: fix this
 
-  // async update(req, res, next) {
-  //   // res.status(200)
-  //   let username = await validationService.validateUser(req);
-  //   if (username === "") return (res.status(401))
+  async update(req, res, next) {
+    // res.status(200)
+    let username = await validationService.validateUser(req);
+    if (username === "") return (res.status(401))
 
-  //   try {
-  //     let document = dbContext.Skill.findByIdUpdate(req.params.skillId, req.body, { new: true });
-  //     res.send(document);
-  //   } catch (e) {
-  //     next(e);
-  //   }
-  // }
+
+    dbContext.Skill.findByIdAndUpdate(req.params.skillId, req.body, { new: true }, (err, document) => {
+      if (err) throw err
+      console.log(document)
+    });
+
+
+  }
 }

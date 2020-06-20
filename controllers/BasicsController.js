@@ -85,6 +85,5 @@ export default class BasicsController {
       console.log(document)
     });
 
-
   }
 }
