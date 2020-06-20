@@ -27,7 +27,7 @@ export default class WorksController {
 
       dbContext.Work.find({ username: username }, function (err, documents) {
         if (err) throw console.error(err);
-        console.log("found the work!", documents);
+        // console.log("found the work!", documents);
         return res.send(documents);
       });
 
@@ -44,7 +44,7 @@ export default class WorksController {
       if (username === "") return res.status(401);
 
       req.body.username = username;
-      console.log(req.body);
+      // console.log(req.body);
 
       // creates the new work item
       dbContext.Work.create(req.body, function (err, document) {
@@ -64,7 +64,7 @@ export default class WorksController {
             { workIndexArray: updatedIndexArray },
             { new: true },
             function (err, doc) {
-              console.log("updated doc: ", doc);
+              // console.log("updated doc: ", doc);
             }
           );
         });
@@ -78,8 +78,8 @@ export default class WorksController {
   }
 
   async deleteByWorkId(req, res, next) {
-    console.log("trigger");
-    console.log(req.body);
+    // console.log("trigger");
+    // console.log(req.body);
 
     try {
       // Their particular username to store with the data
@@ -97,20 +97,44 @@ export default class WorksController {
     }
   }
 
+  // async update(req, res, next) {
+  //   // res.status(200)
+  //   console.log("the request is: ", req.body)
+  //   console.log("the id is: ", req.params.workId)
+
+  //   let username = await validationService.validateUser(req);
+  //   if (username === "") return res.status(401);
+
+  //   try {
+  //     let document = dbContext.Work.findByIdAndUpdate(
+  //       req.params.workId,
+  //       req.body,
+  //       { new: true }
+  //     );
+  //     console.log("update from server: ", document)
+  //     res.send(document);
+  //   } catch (e) {
+  //     next(e);
+  //   }
+  // }
+
   async update(req, res, next) {
     // res.status(200)
+    console.log("the request is: ", req.body)
+    console.log("the id is: ", req.params.workId)
+
     let username = await validationService.validateUser(req);
     if (username === "") return res.status(401);
 
-    try {
-      let document = dbContext.Work.findByIdAndUpdate(
-        req.params.workId,
-        req.body,
-        { new: true }
-      );
-      res.send(document);
-    } catch (e) {
-      next(e);
-    }
+    dbContext.Work.findByIdAndUpdate(
+      req.params.workId,
+      req.body,
+      { new: true }, (err, document) => {
+        if (err) {
+          throw err
+        }
+        console.log(document)
+      }
+    )
   }
 }
