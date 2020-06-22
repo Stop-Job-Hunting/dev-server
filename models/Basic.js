@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const Basic = new Schema(
   {
-    username: { type: String, required: true },
+    username: { type: String, required: true, unique: true },
     isDeleted: { type: Boolean, default: false },
     firstname: { type: String },
     lastname: { type: String },
