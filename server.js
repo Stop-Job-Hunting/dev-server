@@ -23,32 +23,24 @@ database.connect();
 
 // Register our controllers here
 import SessionsController from "./controllers/SessionsController";
-import ResumesController from "./controllers/ResumesController";
 import AwardsController from "./controllers/AwardsController";
 import BasicsController from "./controllers/BasicsController"
 import EducationsController from "./controllers/EducationsController";
 import InterestsController from "./controllers/InterestsController";
 import LanguagesController from "./controllers/LanguagesController";
-import LocationsController from "./controllers/LocationsController";
-import NetworkProfilesController from "./controllers/NetworkProfilesController";
 import PublicationsController from "./controllers/PublicationsController";
 import ReferencesController from "./controllers/ReferencesController";
-import SkillsController from "./controllers/SkillsController";
 import VolunteersController from "./controllers/VolunteersController";
 import WorksController from "./controllers/WorksController";
 
 app.use("/sessions", new SessionsController().router)
-app.use("/resumes", new ResumesController().router)
 app.use("/awards", new AwardsController().router)
 app.use("/basics", new BasicsController().router)
 app.use("/educations", new EducationsController().router)
 app.use("/interests", new InterestsController().router)
 app.use("/languages", new LanguagesController().router)
-app.use("/locations", new LocationsController().router)
-app.use("/networkprofiles", new NetworkProfilesController().router)
 app.use("/publications", new PublicationsController().router)
 app.use("/references", new ReferencesController().router)
-app.use("/skills", new SkillsController().router)
 app.use("/volunteers", new VolunteersController().router)
 app.use("/works", new WorksController().router)
 
