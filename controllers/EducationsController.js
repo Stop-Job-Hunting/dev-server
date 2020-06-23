@@ -18,7 +18,6 @@ export default class EducationsController {
 
   async getAllEducation(req, res, next) {
     try {
-
       // Their particular username to store with the data
       let username = await validationService.validateUser(req);
       if (username === "") return (res.status(401))
@@ -81,12 +80,11 @@ export default class EducationsController {
     let username = await validationService.validateUser(req);
     if (username === "") return (res.status(401))
 
-    try {
-      let document = dbContext.Education.findByIdAndUpdate(req.params.educationId, req.body, { new: true });
-      res.send(document);
-      res.status(200);
-    } catch (e) {
-      next(e);
-    }
+    dbContext.Education.findByIdAndUpdate(req.params.educationId, req.body, { new: true }, (err, document) => {
+      if (err) {
+        throw err
+      }
+      console.log(document)
+    });
   }
 }

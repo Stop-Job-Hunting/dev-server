@@ -56,6 +56,7 @@ export default class WorksController {
         dbContext.Profile.find({ username: username }, function (err, doc) {
           if (err) throw console.error(err);
 
+          // @ts-ignore
           let currentIndexArray = doc[0].workIndexArray;
           let updatedIndexArray = currentIndexArray.concat(workDocID);
 
@@ -97,26 +98,6 @@ export default class WorksController {
     }
   }
 
-  // async update(req, res, next) {
-  //   // res.status(200)
-  //   console.log("the request is: ", req.body)
-  //   console.log("the id is: ", req.params.workId)
-
-  //   let username = await validationService.validateUser(req);
-  //   if (username === "") return res.status(401);
-
-  //   try {
-  //     let document = dbContext.Work.findByIdAndUpdate(
-  //       req.params.workId,
-  //       req.body,
-  //       { new: true }
-  //     );
-  //     console.log("update from server: ", document)
-  //     res.send(document);
-  //   } catch (e) {
-  //     next(e);
-  //   }
-  // }
 
   async update(req, res, next) {
     // res.status(200)
