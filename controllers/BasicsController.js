@@ -38,6 +38,29 @@ export default class BasicsController {
     }
   }
 
+  // async addNewBasic(req, res, next) {
+
+  //   try {
+  //     // Their particular username to store with the data
+  //     let username = await validationService.validateUser(req);
+  //     if (username === "") return (res.status(401))
+
+  //     req.body.username = username;
+  //     console.log(req.body)
+
+  //     dbContext.Basic.create(req.body,
+  //       function (err, document) {
+  //         if (err) throw console.error(err);
+  //         console.log(document)
+  //         res.send(document)
+  //       });
+
+  //     res.status(200);
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
+
   async addNewBasic(req, res, next) {
 
     try {
@@ -47,13 +70,24 @@ export default class BasicsController {
 
       req.body.username = username;
       console.log(req.body)
-      dbContext.Basic.create(req.body,
-        function (err, document) {
-          if (err) throw console.error(err);
-          console.log(document)
-          res.send(document)
-        });
 
+      dbContext.Basic.find({ username: username }, function (err, documents) {
+        if (err) {
+          dbContext.Basic.create(req.body,
+            function (err, document) {
+              if (err) throw console.error(err);
+              console.log(document)
+              res.send(document)
+            });
+        } else {
+          dbContext.Basic.findOneAndUpdate({ username: username }, req.body, { new: true }, (err, document) => {
+            if (err) throw err
+            console.log(document)
+          });
+        }
+        console.log("found the basic!", documents);
+        return res.send(documents);
+      });
       res.status(200);
     } catch (error) {
       next(error)
