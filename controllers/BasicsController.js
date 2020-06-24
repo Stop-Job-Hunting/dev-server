@@ -17,48 +17,18 @@ export default class BasicsController {
   }
 
   async getAllBasic(req, res, next) {
-    try {
-      // Their particular username to store with the data
-      let username = await validationService.validateUser(req);
-      if (username === "") return res.status(401);
-      console.log(username);
+    console.log("trigger");
+    // Their particular username to store with the data
+    let username = await validationService.validateUser(req);
+    if (username === "") return res.status(401);
+    console.log(username);
 
-      // TODO:  if validateUser returns empty username, what to do
-
-      dbContext.Basic.find({ username: username }, function (err, documents) {
-        if (err) throw console.error(err);
-        console.log("found the basic!", documents);
-        return res.send(documents);
-      });
-
-      res.status(200);
-    } catch (error) {
-      next(error);
-    }
+    dbContext.Basic.find({ username: username }, function (err, documents) {
+      if (err) throw console.error(err);
+      console.log("found the basic!", documents);
+      return res.send(documents);
+    });
   }
-
-  // async addNewBasic(req, res, next) {
-
-  //   try {
-  //     // Their particular username to store with the data
-  //     let username = await validationService.validateUser(req);
-  //     if (username === "") return (res.status(401))
-
-  //     req.body.username = username;
-  //     console.log(req.body)
-
-  //     dbContext.Basic.create(req.body,
-  //       function (err, document) {
-  //         if (err) throw console.error(err);
-  //         console.log(document)
-  //         res.send(document)
-  //       });
-
-  //     res.status(200);
-  //   } catch (error) {
-  //     next(error)
-  //   }
-  // }
 
   async addNewBasic(req, res, next) {
     try {
@@ -70,11 +40,12 @@ export default class BasicsController {
       console.log(req.body);
 
       dbContext.Basic.find({ username: username }, function (err, documents) {
-        if (err) {
+        if (documents.length < 1) {
           dbContext.Basic.create(req.body, function (err, document) {
             if (err) throw console.error(err);
             console.log("created doc: ", document);
-            res.send(document);
+            // res.send(document);
+            return res.send(documents);
           });
         } else {
           dbContext.Basic.findOneAndUpdate(
@@ -84,13 +55,12 @@ export default class BasicsController {
             (err, document) => {
               if (err) throw err;
               console.log("updated doc: ", document);
+              return res.send(documents);
             }
           );
         }
         console.log("found the basic!", documents);
-        return res.send(documents);
       });
-      res.status(200);
     } catch (error) {
       next(error);
     }
