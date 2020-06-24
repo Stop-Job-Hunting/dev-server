@@ -73,7 +73,7 @@ export default class BasicsController {
         if (err) {
           dbContext.Basic.create(req.body, function (err, document) {
             if (err) throw console.error(err);
-            console.log(document);
+            console.log("created doc: ", document);
             res.send(document);
           });
         } else {
@@ -83,7 +83,7 @@ export default class BasicsController {
             { new: true },
             (err, document) => {
               if (err) throw err;
-              console.log(document);
+              console.log("updated doc: ", document);
             }
           );
         }
