@@ -51,24 +51,6 @@ export default class WorksController {
         if (err) throw console.error(err);
         let workDocID = document._id;
 
-        // add to the end of Profile workIndexArray
-        // grab workIndexArray document
-        dbContext.Profile.find({ username: username }, function (err, doc) {
-          if (err) throw console.error(err);
-
-          // @ts-ignore
-          let currentIndexArray = doc[0].workIndexArray;
-          let updatedIndexArray = currentIndexArray.concat(workDocID);
-
-          dbContext.Profile.findOneAndUpdate(
-            { username: username },
-            { workIndexArray: updatedIndexArray },
-            { new: true },
-            function (err, doc) {
-              // console.log("updated doc: ", doc);
-            }
-          );
-        });
         res.send(document);
       });
 
@@ -98,11 +80,10 @@ export default class WorksController {
     }
   }
 
-
   async update(req, res, next) {
     // res.status(200)
-    console.log("the request is: ", req.body)
-    console.log("the id is: ", req.params.workId)
+    console.log("the request is: ", req.body);
+    console.log("the id is: ", req.params.workId);
 
     let username = await validationService.validateUser(req);
     if (username === "") return res.status(401);
@@ -110,12 +91,13 @@ export default class WorksController {
     dbContext.Work.findByIdAndUpdate(
       req.params.workId,
       req.body,
-      { new: true }, (err, document) => {
+      { new: true },
+      (err, document) => {
         if (err) {
-          throw err
+          throw err;
         }
-        console.log(document)
+        console.log(document);
       }
-    )
+    );
   }
 }
