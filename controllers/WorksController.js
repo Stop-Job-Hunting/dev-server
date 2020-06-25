@@ -49,8 +49,6 @@ export default class WorksController {
       // creates the new work item
       dbContext.Work.create(req.body, function (err, document) {
         if (err) throw console.error(err);
-        let workDocID = document._id;
-
         res.send(document);
       });
 
