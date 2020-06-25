@@ -32,6 +32,7 @@ import PublicationsController from "./controllers/PublicationsController";
 import ReferencesController from "./controllers/ReferencesController";
 import VolunteersController from "./controllers/VolunteersController";
 import WorksController from "./controllers/WorksController";
+import DownloadController from "./controllers/DownloadController";
 
 app.use("/sessions", new SessionsController().router)
 app.use("/awards", new AwardsController().router)
@@ -43,6 +44,7 @@ app.use("/publications", new PublicationsController().router)
 app.use("/references", new ReferencesController().router)
 app.use("/volunteers", new VolunteersController().router)
 app.use("/works", new WorksController().router)
+app.use("/downloads", new DownloadController().router)
 
 app.get("/", (req, res) => {
   res.status(200)
