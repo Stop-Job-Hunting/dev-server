@@ -1,6 +1,7 @@
 import { dbContext } from "../db/DbContext";
 import express from "express";
 import { validationService } from "../service/ValidationService";
+import BuildJsonString from "../buildJsonString";
 
 export default class DownloadController {
   constructor() {
@@ -29,7 +30,8 @@ export default class DownloadController {
       education: educationItems,
     };
 
-    console.log("combined docs: ", allItems);
+    let parsedDoc = BuildJsonString(allItems);
+    console.log("parsed Doc: ", parsedDoc);
 
     return res.send(allItems);
     res.status(200);
