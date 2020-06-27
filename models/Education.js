@@ -5,7 +5,7 @@ const Education = new Schema(
   {
     username: { type: String, required: true },
     isDeleted: { type: Boolean, default: false },
-    institution: { type: String },
+    institution: { type: String, required: true },
     area: { type: String },
     location: { type: String },
     studyType: { type: String },

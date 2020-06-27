@@ -5,10 +5,10 @@
 
 
   <o:DocumentProperties>
-    <o:Title>Resume for Koby</o:Title>
-    <o:Author>Koby</o:Author>
+    <o:Title>Resume for Lexi Amster</o:Title>
+    <o:Author>Lexi Amster</o:Author>
     <o:Keywords>resume;CV</o:Keywords>
-    <o:LastAuthor>Koby</o:LastAuthor>
+    <o:LastAuthor>Lexi Amster</o:LastAuthor>
     <o:Revision>1</o:Revision>
     <o:TotalTime>60</o:TotalTime>
     <o:Created>2015-12-16T17:38:00Z</o:Created>
@@ -486,7 +486,7 @@
         <w:r>
 
 
-          <w:t>Koby</w:t>
+          <w:t>Lexi Amster</w:t>
         </w:r>
       </w:p>
 
@@ -497,20 +497,20 @@
             <w:sz-cs w:val="20"/>
           </w:rPr>
         </w:pPr>
-        <w:hlink w:dest="mailto:koby@roomservice.dev">
+        <w:hlink w:dest="mailto:pup@puppers.com">
           <w:r wsp:rsidRPr="003876BF">
             <w:rPr>
               <w:rStyle w:val="Hyperlink"/>
               <w:sz w:val="16"/>
             </w:rPr>
-            <w:t>koby@roomservice.dev<w:br/></w:t>
+            <w:t>pup@puppers.com<w:br/></w:t>
           </w:r>
         </w:hlink>
         <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0">
           <w:rPr>
             <w:sz w:val="16"/>
           </w:rPr>
-          <w:t>208-422-4536<w:br/></w:t>
+          <w:t>208-890-4567<w:br/></w:t>
         </w:r>
         <w:hlink w:dest="">
           <w:r wsp:rsidRPr="003876BF">
@@ -548,10 +548,261 @@
       
 
 
+      <wx:sub-section>
+
+
+
+        <wx:pBdrGroup>
+          <wx:borders>
+            <wx:top wx:val="solid" wx:bdrwidth="15" wx:space="1" wx:color="EEEEEE"/>
+          </wx:borders>
+          <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00693C5A" wsp:rsidP="00C146CA">
+            <w:pPr>
+              <w:pStyle w:val="Heading1"/>
+              <w:ind w:left="-720"/>      
+            </w:pPr>
+            <w:r>
+              <w:pict>
+                <w:binData w:name="wordml://03000003.png" xml:space="preserve">iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASZQTFRFv8HDv8HOv8HGv8LIv8TTv8zdv8LOv8bVv8LEv8HEv8HKv8rbv8LQv8HIv8jXv8HMv8LKv8TQz8bEw8LEw8LGydDfyczOz8jGw8jOz8zKw8HDwcbMz8zOycTDy8zOzcHD1cTDxcHDz8LD3crEwcHDwcLEw8LDycHDx8HD0cLDy8HD1drb3dTMy9Tb3drTycLDwcrV3drb1cjE29rb287Izdz/z9zsxdDky9r7ydbs2/X/2/H/1eXw79LG79zQ69bK7dLG487E897Q89bK/+3d///d/+nT8+vd//XZ/+fT//HZ/ePS8+XV8+/f//vb9///4f//7//////q4evw8+/s6+/w7f/////o/f//4+/w8+/w7+/w4fv/4//////59+/w8/P5////sDySyAAAAP9JREFUSMdjSCQaMIwqHZJKXYSEsQARUX9MpbYMWAFjAD2VMomJMzBISEoxSMvIMjDLieNRyhLoKs8YEKTAYArksia6KeJWyhZsJ8Vk5q7EYB6izMAeaq9CHW+pqjEwcAAxpzDQQFUVvG71UOeyArrVAuxWTzxuZQnzUueyDgcpdWDgjvCWoncU8ET6aPDa+GoyWEY5MvBFO0nh85afFn8MUVEADixVYEBBAkuNOm4V0NZR4dTV02cwMDRiEDQ2oU5yIcFUUpMLHOANAVC4wlXidysothg4wLlahUBsgQCXFQoXn1KoHJWVkuAAuLdwK3XGEQWxmErj4qOwgQS4AgDkC738cGCe/AAAAABJRU5ErkJggk==</w:binData>
+                <v:shape id="_x0000_i1026" type="#_x0000_t75" style="width:31.5pt;height:31.5pt">
+                  <v:imagedata src="wordml://03000003.png" o:title="fa-building"/>
+                </v:shape>
+              </w:pict>
+            </w:r>
+            <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+              <w:t>EMPLOYMENT</w:t>
+            </w:r>
+          </w:p>
+        </wx:pBdrGroup>
+
+
+
+  <wx:sub-section>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00606071" wsp:rsidP="00E578D4">
+      <w:pPr>
+        <w:pStyle w:val="Heading2"/>
+        <w:tabs>
+          <w:tab w:val="right" w:pos="9360"/>
+        </w:tabs>
+      </w:pPr>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>Food Tester, </w:t>
+      </w:r>
+      
+        <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
+          <w:t>Dog Food of Merica</w:t>
+        </w:r>
+      
+      <w:r wsp:rsidR="00EA0B64">
+        <w:tab/>
+      </w:r>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:rPr>
+          <w:rStyle w:val="FromTo"/>
+        </w:rPr>
+        <w:t>Jun 2012 — May 2018</w:t>
+      </w:r>
+    </w:p>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      
+    </w:p>
+
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:listPr>
+          <w:ilvl w:val="0"/>
+          <w:ilfo w:val="1"/>
+          <wx:t wx:val="•"/>
+          <wx:font wx:val="Calibri"/>
+        </w:listPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r><w:rPr></w:rPr><w:t>ate the food and said if it was yummy or not</w:t></w:r>
+    </w:p>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:listPr>
+          <w:ilvl w:val="0"/>
+          <w:ilfo w:val="1"/>
+          <wx:t wx:val="•"/>
+          <wx:font wx:val="Calibri"/>
+        </w:listPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r><w:rPr></w:rPr><w:t>tried not to bite the other dogs</w:t></w:r>
+    </w:p>
+
+  </wx:sub-section>
+
+
+  <wx:sub-section>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00606071" wsp:rsidP="00E578D4">
+      <w:pPr>
+        <w:pStyle w:val="Heading2"/>
+        <w:tabs>
+          <w:tab w:val="right" w:pos="9360"/>
+        </w:tabs>
+      </w:pPr>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>Master Sniffer, </w:t>
+      </w:r>
+      
+        <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
+          <w:t>Deer company</w:t>
+        </w:r>
+      
+      <w:r wsp:rsidR="00EA0B64">
+        <w:tab/>
+      </w:r>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:rPr>
+          <w:rStyle w:val="FromTo"/>
+        </w:rPr>
+        <w:t>Aug 2018 — Sep 2020</w:t>
+      </w:r>
+    </w:p>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      
+    </w:p>
+
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:listPr>
+          <w:ilvl w:val="0"/>
+          <w:ilfo w:val="1"/>
+          <wx:t wx:val="•"/>
+          <wx:font wx:val="Calibri"/>
+        </w:listPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r><w:rPr></w:rPr><w:t>sniff out deer poop</w:t></w:r>
+    </w:p>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:listPr>
+          <w:ilvl w:val="0"/>
+          <w:ilfo w:val="1"/>
+          <wx:t wx:val="•"/>
+          <wx:font wx:val="Calibri"/>
+        </w:listPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r><w:rPr></w:rPr><w:t>eat the deer poop</w:t></w:r>
+    </w:p>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:listPr>
+          <w:ilvl w:val="0"/>
+          <w:ilfo w:val="1"/>
+          <wx:t wx:val="•"/>
+          <wx:font wx:val="Calibri"/>
+        </w:listPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r><w:rPr></w:rPr><w:t>lick people after eating deer poop</w:t></w:r>
+    </w:p>
+
+  </wx:sub-section>
+
+
+</wx:sub-section>
+
       
       
+      <wx:sub-section>
+
+<wx:pBdrGroup>
+  <wx:borders>
+    <wx:top wx:val="solid" wx:bdrwidth="15" wx:space="1" wx:color="EEEEEE"/>
+  </wx:borders>
+  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00693C5A" wsp:rsidP="00C146CA">
+    <w:pPr>
+      <w:pStyle w:val="Heading1"/>
+      <w:ind w:left="-720"/>      
+    </w:pPr>
+    <w:r>
+      <w:pict>
+        <w:binData w:name="wordml://03000004.png" xml:space="preserve">iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAaFQTFRFv8HDv8LIv8HGv8HEv8HKv8HMv8jXv8HOv8jZv8TT3dLS2c7Kw8HDwcbM08rIwcHDwcTKz9Lbz8jGy9DXy8bEyczTycTDxcrSx8LDw8jV2dDMxcHD3dLOw8jO1cTDx8rSwc7fzdLbz8LD1czK3dLTx8HD28jDy8HDy8zOz8rI0cLD3crD18jE0cjGyc7Z29LQz8rKxcLEw8LEw8TKy8zQ1djdzcHD1drk09bi09jm0dbizdz/xdLqy9jsxdTswc7i3ePs2eHo2+Ps2e3/z+H/3ev/2/X/3fn/2e//z+H71en/69zT6djS49LO/d7Q6drT4czD59TQ/97O/drM79LG5c7E8ePZ+eHS7eHX8+Pb/+/X/ePS8ePb//Xb9eXZ7+Pd///d/+nT/+HQ///7+evk8fX7///59+fi6/P5//v16ev1/f////nz5efz+////fXs+fv/+/Po9/n/6////evi9///8/n////q//nu4+fz///i+fHw9fX7///18//q4f/q8//i//nm6+/7///o+f//7///4///9+/w8+/w8/P5////rwMOhgAAAWBJREFUSMdj6CIaMIwqHVVKL6XJKVzmqUQoTUvn5mEAAl6LDLxKM8P4+BngQEAwKxu70hxvISR1EMAonJuHrjTfR4QBO2ASdShAKC30FWPAC8Qdi8BKwyUYiACSxUClJVLShFXyWpaCHZCcIoPXBbLmZUjeKpfDoYxZ3qkANQT8+FmcK/zRQ4tJtDIPPVyTAxgUQMGdGYGIA0ZF1BiAKq1SYnbpCgQHSVqkMjBmBawywJ5QcUVXGqXK4tYVAPQoOJ0kV9eAU4MUMBit0ZVG87C616pBYh5sXmaMMjjVYCiNVWdgYKuDBwKjhibcxehKg4Bi7PVYw8sGm6kNWsQo7QpmYPGo1cYWA57oSkMYmLy6GnUwVdpmoysNBbs/OU4XNbL0mjCiABROdpCsEK9vYGgEBMYmpmiRBVHaDPS8PXGZO8GMgYGjhSilicDEzdlKlNIkYOSwtxGlNK29o6OToFsBkPOxfsuGle0AAAAASUVORK5CYIJ=</w:binData>
+        <v:shape id="_x0000_i1026" type="#_x0000_t75" style="width:31.5pt;height:31.5pt">
+          <v:imagedata src="wordml://03000004.png" o:title="fa-mortar-board"/>
+        </v:shape>
+      </w:pict>
+    </w:r>
+    <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+      <w:t>EDUCATION</w:t>
+    </w:r>
+  </w:p>
+</wx:pBdrGroup>
+
+
+  <wx:sub-section>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00606071" wsp:rsidP="00E578D4">
+      <w:pPr>
+        <w:pStyle w:val="Heading2"/>
+        <w:tabs>
+          <w:tab w:val="right" w:pos="9360"/>
+        </w:tabs>
+      </w:pPr>
       
+        <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
+          <w:t>University of Colorado</w:t>
+        </w:r>
       
+      <w:r wsp:rsidR="00EA0B64">
+        <w:tab/>
+      </w:r>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:rPr>
+          <w:rStyle w:val="FromTo"/>
+        </w:rPr>
+        <w:t>??? — 2001</w:t>
+      </w:r>
+    </w:p>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r wsp:rsidRPr="000A3AF0">
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+        <w:t>Wildlife Biology, Masters of Sniffing</w:t>
+      </w:r>
+    </w:p>
+
+
+  </wx:sub-section>
+
+
+</wx:sub-section>
+
       
       
       

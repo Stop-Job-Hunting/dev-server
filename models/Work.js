@@ -5,7 +5,7 @@ const Work = new Schema(
   {
     username: { type: String, required: true },
     isDeleted: { type: Boolean, default: false },
-    company: { type: String },
+    company: { type: String, required: true },
     position: { type: String },
     city: { type: String },
     state: { type: String },
