@@ -5,10 +5,10 @@
 
 
   <o:DocumentProperties>
-    <o:Title>Resume for Lexi Amster</o:Title>
-    <o:Author>Lexi Amster</o:Author>
+    <o:Title>Resume for Evan User</o:Title>
+    <o:Author>Evan User</o:Author>
     <o:Keywords>resume;CV</o:Keywords>
-    <o:LastAuthor>Lexi Amster</o:LastAuthor>
+    <o:LastAuthor>Evan User</o:LastAuthor>
     <o:Revision>1</o:Revision>
     <o:TotalTime>60</o:TotalTime>
     <o:Created>2015-12-16T17:38:00Z</o:Created>
@@ -486,7 +486,7 @@
         <w:r>
 
 
-          <w:t>Lexi Amster</w:t>
+          <w:t>Evan User</w:t>
         </w:r>
       </w:p>
 
@@ -497,20 +497,20 @@
             <w:sz-cs w:val="20"/>
           </w:rPr>
         </w:pPr>
-        <w:hlink w:dest="mailto:pup@puppers.com">
+        <w:hlink w:dest="mailto:evan@userevan.com">
           <w:r wsp:rsidRPr="003876BF">
             <w:rPr>
               <w:rStyle w:val="Hyperlink"/>
               <w:sz w:val="16"/>
             </w:rPr>
-            <w:t>pup@puppers.com<w:br/></w:t>
+            <w:t>evan@userevan.com<w:br/></w:t>
           </w:r>
         </w:hlink>
         <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0">
           <w:rPr>
             <w:sz w:val="16"/>
           </w:rPr>
-          <w:t>208-890-4567<w:br/></w:t>
+          <w:t>2089999999<w:br/></w:t>
         </w:r>
         <w:hlink w:dest="">
           <w:r wsp:rsidRPr="003876BF">
@@ -586,11 +586,11 @@
         </w:tabs>
       </w:pPr>
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>Food Tester, </w:t>
+        <w:t>CTO, </w:t>
       </w:r>
       
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
-          <w:t>Dog Food of Merica</w:t>
+          <w:t>Room Service</w:t>
         </w:r>
       
       <w:r wsp:rsidR="00EA0B64">
@@ -600,7 +600,7 @@
         <w:rPr>
           <w:rStyle w:val="FromTo"/>
         </w:rPr>
-        <w:t>Jun 2012 — May 2018</w:t>
+        <w:t>Nov 2020</w:t>
       </w:r>
     </w:p>
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
@@ -625,106 +625,7 @@
           <w:sz-cs w:val="20"/>
         </w:rPr>
       </w:pPr>
-      <w:r><w:rPr></w:rPr><w:t>ate the food and said if it was yummy or not</w:t></w:r>
-    </w:p>
-    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
-      <w:pPr>
-        <w:pStyle w:val="ListParagraph"/>
-        <w:listPr>
-          <w:ilvl w:val="0"/>
-          <w:ilfo w:val="1"/>
-          <wx:t wx:val="•"/>
-          <wx:font wx:val="Calibri"/>
-        </w:listPr>
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-      </w:pPr>
-      <w:r><w:rPr></w:rPr><w:t>tried not to bite the other dogs</w:t></w:r>
-    </w:p>
-
-  </wx:sub-section>
-
-
-  <wx:sub-section>
-    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00606071" wsp:rsidP="00E578D4">
-      <w:pPr>
-        <w:pStyle w:val="Heading2"/>
-        <w:tabs>
-          <w:tab w:val="right" w:pos="9360"/>
-        </w:tabs>
-      </w:pPr>
-      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>Master Sniffer, </w:t>
-      </w:r>
-      
-        <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
-          <w:t>Deer company</w:t>
-        </w:r>
-      
-      <w:r wsp:rsidR="00EA0B64">
-        <w:tab/>
-      </w:r>
-      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:rPr>
-          <w:rStyle w:val="FromTo"/>
-        </w:rPr>
-        <w:t>Aug 2018 — Sep 2020</w:t>
-      </w:r>
-    </w:p>
-    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
-      <w:pPr>
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-      </w:pPr>
-      
-    </w:p>
-
-    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
-      <w:pPr>
-        <w:pStyle w:val="ListParagraph"/>
-        <w:listPr>
-          <w:ilvl w:val="0"/>
-          <w:ilfo w:val="1"/>
-          <wx:t wx:val="•"/>
-          <wx:font wx:val="Calibri"/>
-        </w:listPr>
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-      </w:pPr>
-      <w:r><w:rPr></w:rPr><w:t>sniff out deer poop</w:t></w:r>
-    </w:p>
-    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
-      <w:pPr>
-        <w:pStyle w:val="ListParagraph"/>
-        <w:listPr>
-          <w:ilvl w:val="0"/>
-          <w:ilfo w:val="1"/>
-          <wx:t wx:val="•"/>
-          <wx:font wx:val="Calibri"/>
-        </w:listPr>
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-      </w:pPr>
-      <w:r><w:rPr></w:rPr><w:t>eat the deer poop</w:t></w:r>
-    </w:p>
-    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
-      <w:pPr>
-        <w:pStyle w:val="ListParagraph"/>
-        <w:listPr>
-          <w:ilvl w:val="0"/>
-          <w:ilfo w:val="1"/>
-          <wx:t wx:val="•"/>
-          <wx:font wx:val="Calibri"/>
-        </w:listPr>
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-      </w:pPr>
-      <w:r><w:rPr></w:rPr><w:t>lick people after eating deer poop</w:t></w:r>
+      <w:r><w:rPr></w:rPr><w:t>Many team players, much product built.</w:t></w:r>
     </w:p>
 
   </wx:sub-section>
@@ -770,7 +671,7 @@
       </w:pPr>
       
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
-          <w:t>University of Colorado</w:t>
+          <w:t>University of Evan</w:t>
         </w:r>
       
       <w:r wsp:rsidR="00EA0B64">
@@ -780,7 +681,7 @@
         <w:rPr>
           <w:rStyle w:val="FromTo"/>
         </w:rPr>
-        <w:t>??? — 2001</w:t>
+        <w:t>??? — 2020</w:t>
       </w:r>
     </w:p>
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
@@ -793,7 +694,7 @@
         <w:rPr>
           <w:sz-cs w:val="20"/>
         </w:rPr>
-        <w:t>Wildlife Biology, Masters of Sniffing</w:t>
+        <w:t>Computer Science, Bachelors </w:t>
       </w:r>
     </w:p>
 

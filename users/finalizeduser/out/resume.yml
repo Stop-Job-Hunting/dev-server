@@ -1,0 +1,50 @@
+name: 'Koby Conrad'
+info:
+  brief: 'Full stack software engineer and an experienced Marketing Director. Lots of experience doing lots of things.'
+contact:
+  email: koby@roomservice.dev
+  phone: 208-422-4536
+meta:
+  format: FRESH@^1.0.0-beta
+  modified: '2020-06-28T02:56:38.982Z'
+location:
+  city: 'San Fransico'
+  region: CA
+  code: '94118'
+employment:
+  history:
+    -
+      position: 'Software Engineer 2'
+      employer: 'Room Service'
+      start: 08/09/20
+      end: 08/09/20
+      keywords: []
+      highlights:
+        - 'I did a lot of things with this job. Lots of things.'
+    -
+      position: 'Software Engineer'
+      employer: 'Room Service'
+      start: 08/09/20
+      end: 08/09/20
+      keywords: []
+      highlights:
+        - 'Built products in React.'
+        - 'Created a new system to do things.'
+        - 'Did so much javascript my brain blew up.'
+education:
+  level: ""
+  history:
+    -
+      institution: 'University of Idaho'
+      end: 'Aug 2019'
+      curriculum: []
+      summary: ""
+      area: 'General Studies'
+      studyType: 'Bachelor''s of General Studies'
+    -
+      institution: 'Golden Gate University'
+      end: 'September 2021'
+      curriculum: []
+      summary: ""
+      area: Leadership
+      studyType: M.S.
