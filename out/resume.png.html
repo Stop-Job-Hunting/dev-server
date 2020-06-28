@@ -1,333 +1,527 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
         <title>Lexi Amster</title>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic'
-        rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet">
         <style>
-            * {
-              box-sizing: border-box;
+            /* Utils */
+            /*----- Colors -----*/
+            /*----- Fonts -----*/
+            /*----- Dimensions and sizes -----*/
+            /* Base */
+            @font-face {
+              font-family: 'Josefin Sans';
+              font-style: normal;
+              font-weight: 300;
+              src: local('Josefin Sans Light'), local('JosefinSans-Light'), url(https://fonts.gstatic.com/s/josefinsans/v14/Qw3FZQNVED7rKGKxtqIqX5Ecpl5te10k.ttf) format('truetype');
             }
             
-            main {
-              display: block;
+            @font-face {
+              font-family: 'Josefin Sans';
+              font-style: normal;
+              font-weight: 700;
+              src: local('Josefin Sans Bold'), local('JosefinSans-Bold'), url(https://fonts.gstatic.com/s/josefinsans/v14/Qw3FZQNVED7rKGKxtqIqX5Ectllte10k.ttf) format('truetype');
+            }
+            
+            @font-face {
+              font-family: 'Lato';
+              font-style: italic;
+              font-weight: 300;
+              src: local('Lato Light Italic'), local('Lato-LightItalic'), url(https://fonts.gstatic.com/s/lato/v16/S6u_w4BMUTPHjxsI9w2_Gwfo.ttf) format('truetype');
+            }
+            
+            @font-face {
+              font-family: 'Lato';
+              font-style: italic;
+              font-weight: 400;
+              src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v16/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
+            }
+            
+            @font-face {
+              font-family: 'Lato';
+              font-style: italic;
+              font-weight: 700;
+              src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v16/S6u_w4BMUTPHjxsI5wq_Gwfo.ttf) format('truetype');
+            }
+            
+            @font-face {
+              font-family: 'Lato';
+              font-style: normal;
+              font-weight: 300;
+              src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
+            }
+            
+            @font-face {
+              font-family: 'Lato';
+              font-style: normal;
+              font-weight: 400;
+              src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+            }
+            
+            @font-face {
+              font-family: 'Lato';
+              font-style: normal;
+              font-weight: 700;
+              src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
+            }
+            
+            html {
+              background: white;
             }
             
             body {
-              font-size: 15px;
-              color: #333;
-              line-height: 1.42857143;
-              background-color: #F0F0F0;
+              font-family: "Lato", Helvetica, Arial, sans-serif;
+              font-weight: 400;
+              background: white;
+              margin: 50px 0 100px;
+              letter-spacing: .3px;
+              color: #39424B;
+            }
+            
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+              text-transform: none;
               margin: 0;
-              padding: 0;
-              font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Calibri', 'sans-serif';
-            }
-            
-            /* Typical page borders are awkward when rendered to PDF. */
-            body.pdf {
-              background-color: #FFFFFF;
-            }
-            
-            /* Adobe or wkhtmltopdf has issues with the <main> tag, so we use <div> for
-            the PDF case, <main> for the HTML case, and style both via an ID. */
-            #main {
-              background-color: #FFF;
-              margin: 10px;
-              padding: 10px;
-              border: 1px solid #E6E6E6;
-            }
-            
-            body.pdf > #main {
-              border: none;
-            }
-            
-            #container > header {
-              padding-top: 6em;
-              padding-bottom: 1em;
-            }
-            
-            body.pdf #container > header {
-              padding: 0;
-            }
-            
-            #main > #container > section {
-              margin-left: 150px;
-              position: relative;
-              display: block;
-            }
-            
-            section > div {
-              margin-bottom: 60px;
-            }
-            
-            span.fa
-            {
-              font-size: 56px;
-              position: absolute;
-              top: 37px;
-              transform: translateY(-50%);
-              left: -100px;
-              color: #1a4367;
-            }
-            
-            hr {
-              margin-top: 20px;
-              margin-bottom: 20px;
-              border: 0;
-              border-top: 1px solid #EEE;
-            }
-            
-            .tenure, .keywords {
-              font-size: 75%;
             }
             
             h1 {
-              margin: 0;
-              font-size: 46px;
-              display: inline-block;
+              font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
+              font-weight: 700;
+              font-size: 40px;
+              letter-spacing: 1px;
             }
             
             h2 {
-              font-size: 30px;
-              color: #4376a2;
-              text-transform: uppercase;
-              font-weight: normal;
-              padding-top: 20px;
-              margin-bottom: 60px;
+              font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
+              font-weight: 300;
+              font-size: 16px;
+              letter-spacing: .5px;
             }
             
             h3 {
-              margin-bottom: 0;
-              font-size: 18px;
+              font-family: "Lato", Helvetica, Arial, sans-serif;
+              font-weight: 300;
+              font-size: 14px;
+              letter-spacing: .4px;
             }
             
-            a, a:visited {
-              color: #428BCA;
-              text-decoration: none;
-              font-weight: bold;
+            h3.bold {
+              font-weight: 700;
+            }
+            
+            h4 {
+              font-family: "Lato", Helvetica, Arial, sans-serif;
+              font-weight: 300;
+              font-size: 12px;
+            }
+            
+            h4.bold {
+              font-weight: 700;
+            }
+            
+            h5 {
+              font-family: "Lato", Helvetica, Arial, sans-serif;
+              font-weight: 300;
+              font-size: 11px;
+            }
+            
+            h5.italic {
+              font-style: italic;
+            }
+            
+            h6 {
+              font-family: "Lato", Helvetica, Arial, sans-serif;
+              font-weight: 400;
+              font-size: 10px;
+            }
+            
+            a {
+              color: inherit;
+              text-decoration: inherit;
             }
             
             a:hover {
-              text-decoration: underline;
+              color: #2895F1;
             }
             
-            .defunct {
-              color: #989898;
-              font-weight: bold;
+            a .fa-external-link {
+              font-size: 10px;
+              vertical-align: text-top;
             }
             
-            #summary {
-              font-size: 150%;
-              margin-left: 0;
-              padding: 20px 0;
+            p,
+            li {
+              font-size: 11px;
             }
             
-            #summary > p > strong {
-              font-size: 1.25em;
+            blockquote {
+              font-size: 11px;
+              font-family: "Lato", Helvetica, Arial, sans-serif;
+              font-weight: 400;
+              font-style: italic;
+              margin: 10px 25px;
             }
             
-            #contact {
+            em {
+              color: #999;
+            }
+            
+            ul {
+              margin: 10px 0 0;
+              -webkit-padding-start: 25px;
+            }
+            
+            ul li {
+              padding-left: 10px;
+            }
+            
+            ul.minimal {
+              list-style: none;
+              padding: 0;
+            }
+            
+            ul.minimal li {
+              margin-bottom: 3px;
+              padding-left: 0;
+            }
+            
+            ul.two-column {
+              -webkit-column-count: 2;
+              -webkit-column-gap: 28px;
+              column-count: 2;
+              column-gap: 28px;
+            }
+            
+            ul.two-column li {
+              padding-left: 0;
+            }
+            
+            @page {
+              size: A4;
+            }
+            
+            .container {
+              padding-top: 20px;
+            }
+            
+            .keyline {
+              width: 45px;
+              margin: 8px 0 10px;
+              border-top: 1px solid #56817A;
+            }
+            
+            .pull-left {
+              float: left;
+            }
+            
+            .pull-right {
               float: right;
             }
             
-            #summary > header > .fa-info {
-              font-size: 70px;
-              letter-spacing: 5px;
-              text-transform: uppercase;
-              font-weight: normal;
-              top: 50%;
-              left: -85px;
-              transform: translateY(-50%);
+            .clearfix:after {
+              content: "";
+              display: table;
+              clear: both;
             }
             
-            #summary h2 {
-              display: none;
+            .profile-pic {
+              margin-top: -5px;
+              margin-right: 18px;
             }
             
-            
-            .label-keyword {
-              display: inline-block;
-              background: #e8f4ff;
-              color: black;
-              font-size: 0.9em;
-              padding: 5px;
-              border: 1px solid #357ebd;
-              border-radius: 5px;
-              margin-top: 2px;
-              font-weight: bold;
-              text-align: center;
+            .profile-pic img {
+              height: 52px;
+              width: 52px;
+              border-radius: 50%;
+              border: 2px solid #56817A;
             }
             
-            .notes {
-              font-size: 10px;
+            .summary {
+              margin: 5px 0 5px;
+            }
+            
+            .sublink {
+              font-size: 70%;
+              font-weight: 200;
+              color: dimgray;
+            }
+            
+            .capitalize {
+              text-transform: capitalize;
+            }
+            
+            /* Layouts */
+            .page {
+              background: white;
+              width: 612px;
+              min-height: 792px;
               display: block;
-              font-weight: normal;
-              text-transform: uppercase;
+              margin: 0 auto;
+              border-top: 10px solid #56817A;
+              padding: 36px 22px 30px 34px;
+              box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
             }
             
-            .card-skills {
-                position: relative;
-            }
-            .card-nested {
-                min-height: 0;
-                margin-bottom: 10px;
-                border-width: 1px 0 0 0;
-            }
-            .card {
-                background: #FFF;
-                border-radius: 3px;
-                padding: 10px;
+            .page:after {
+              content: "";
+              display: table;
+              clear: both;
             }
             
-            .skill-level {
-              border-radius: 3px;
-              position: absolute;
-              top: 10px;
-              bottom: 10px;
-              left: 0;
-              width: 10px;
-              box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+            .left-column {
+              float: left;
+              width: 160px;
+              margin-right: 20px;
+              word-wrap: break-word;
             }
-            .skill-level .skill-progress {
-              position: absolute;
-              border-radius: 3px;
-              bottom: 0;
-              width: 100%;
-              -webkit-transition: height 1s ease;
+            
+            .right-column {
+              width: auto;
+              overflow: hidden;
             }
-            .skill-level .skill-progress.beginner {
-              height: 50%;
-              background: #e74c3c;
+            
+            .item {
+              margin-bottom: 15px;
             }
-            .skill-level .skill-progress.intermediate {
-              height: 70%;
-              background: #f1c40f;
+            
+            .item:last-child {
+              margin-bottom: 0;
             }
-            .skill-level .skill-progress.advanced {
-              height: 80%;
-              background: #428bca;
-            }
-            .skill-level .skill-progress.master {
-              height: 95%;
-              background: #5cb85c;
-            }
-            .skill-info {
-              margin-left: 10px;
-            }
-            @media (max-width: 480px) {
-              .skill-info {
-                margin-left: 20px;
+            
+            @media print {
+              body {
+                margin: 0;
+              }
+            
+              .page {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 36px 0 30px;
+                box-shadow: none;
+              }
+            
+              .page .resume-header,
+              .page .resume-content {
+                padding: 0 22px 0 34px;
+              }
+            
+              .container {
+                page-break-inside: avoid;
+              }
+            
+              .work-container .item {
+                page-break-inside: avoid;
+              }
+            
+              .fa-external-link {
+                display: none;
               }
             }
-            .skill-info > strong {
-              font-weight: 400;
-              font-size: 24px;
-              color: #1d1d1d;
-              line-height: 24px;
+            
+            /* Components */
+            .info-tag-container {
+              margin-bottom: 5px;
             }
             
-            .list-unstyled {
-              padding-left: 0;
-              list-style: none;
-            }
-            
-            .card-skills {
-              position: relative;
-            }
-            
-            .space-top {
-                margin-top: 5px;
-            }
-            
-            #container {
-              max-width: 800px;
-              margin: 0 auto;
-            }
-            
-            #elevator-pitch {
+            .info-tag-container .fa {
+              font-size: 14px;
+              width: 12px;
+              margin-right: 5px;
               text-align: center;
-              font-size: 24px;
-              color: #BFC1C3;
-              text-transform: uppercase;
-              font-weight: normal;
+              vertical-align: middle;
             }
             
-            .res-label {
+            .info-tag-container .fa.fa-map-marker {
+              font-size: 16px;
+            }
+            
+            .info-tag-container .fa.fa-mobile {
+              font-size: 18px;
+            }
+            
+            .info-tag-container .fa.fa-envelope-o {
+              font-size: 12px;
+            }
+            
+            .info-tag-container .fa.fa-desktop {
+              font-size: 11px;
+            }
+            
+            .info-tag-container .fa.fa-external-link {
+              width: auto;
+              font-size: inherit;
+              vertical-align: text-top;
+            }
+            
+            .info-tag-container .info-text {
+              font-size: 12px;
+              text-transform: none;
+              display: inline-block;
+              vertical-align: middle;
+              width: 139px;
+            }
+            
+            .references-container .fa {
+              font-size: 14px;
+            }
+            
+            .education-container .location {
+              padding-bottom: 6px;
+              font-weight: 400;
+            }
+            
+            .education-container .specialization {
+              text-transform: none;
               font-style: italic;
+            }
+            
+            .flex-container {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+            }
+            
+            .main-skill {
+              font-size: 80%;
+            }
+            
+            .skill {
+              margin: .15em;
+              padding: .15em;
+              background: ghostwhite;
+              border-radius: 5px;
             }
         </style>
     </head>
     
     <body>
-        <main id="main">
-            <div id="container">
-                <header>
+        <main id="resume" class="page">
+            <header class="resume-header clearfix">
+                <div class="profile-header pull-left">
                      <h1>Lexi Amster</h1>
-                    <div id="contact">
-                        <div class="email"><a href="mailto:pup@puppers.com">pup@puppers.com</a>
+
+                     <h2></h2>
+
+                </div>
+                <div class="profile-pic pull-right"></div>
+            </header>
+            <div class="resume-content">
+                <aside class="left-column">
+                    <div class="container about-container">
+                        <div class="title">
+                             <h3>About</h3>
+
+                            <div class="keyline"></div>
                         </div>
-                        <div class="phone">208-890-4567</div>
+                        <div class="info-tag-container"> <i class="fa fa-map-marker"></i>
+
+                             <h6 class="info-text"> puppy city co 54321 </h6>
+
+                        </div>
+                        <div class="info-tag-container"> <i class="fa fa-envelope-o"></i>
+
+                             <h6 class="info-text">
+                            <a href="mailto:pup@puppers.com" target="_blank">
+                                pup@puppers.com
+                            </a>
+                        </h6>
+
+                        </div>
+                        <div class="info-tag-container"> <i class="fa fa-mobile"></i>
+
+                             <h6 class="info-text">208-890-4567</h6>
+
+                        </div>
+                        </section>
+                </aside>
+                <div class="right-column">
+                    <div class="container summary-container">
+                        <div class="title">
+                             <h3>Summary</h3>
+
+                            <div class="keyline"></div>
+                        </div>
+                        <p class="summary">I am a very talented pupper who will happily lick your feet after eating
+                            deer poop. I&#x27;ll lick your face too if the poop was very smelly. But
+                            I&#x27;m cute anyway</p>
                     </div>
-                </header>
-                <hr>
-                <section id="summary">
-                    <header> <span class="fa fa-lg fa-info"></span> 
-                         <h2>info</h2>
+                    <div class="container work-container">
+                        <div class="title">
+                             <h3>Experience</h3>
 
-                    </header>I am a very talented pupper who will happily lick your feet after eating
-                    deer poop. I&#39;ll lick your face too if the poop was very smelly. But
-                    I&#39;m cute anyway</section>
-                <hr>
-                <section id="employment">
-                    <header> <span class="fa fa-lg fa-building"></span> 
-                         <h2>employment</h2>
+                            <div class="keyline"></div>
+                        </div>
+                        <section class="item">
+                            <div class="section-header clearfix">
+                                 <h3 class="bold pull-left">
+                                Deer company
+                        </h3>
 
-                    </header>
-                    <div>
-                         <h3><em>Food Tester</em>,
+                                 <h5 class="italic pull-right">
+                                <span class="startDate">08/2018</span>
+                                <span class="endDate"> - 09/2020</span>
+                        </h5>
 
-    Dog Food of Merica
+                            </div>
+                             <h4>Master Sniffer</h4>
 
-    </h3> <span class="tenure">2012-06 — 2018-05</span>
-                        <p></p>
-                        <ul>
-                            <li>ate the food and said if it was yummy or not</li>
-                            <li>tried not to bite the other dogs</li>
-                        </ul>
+                            <ul>
+                                <li>sniff out deer poop</li>
+                                <li>eat the deer poop</li>
+                                <li>lick people after eating deer poop</li>
+                            </ul>
+                        </section>
+                        <section class="item">
+                            <div class="section-header clearfix">
+                                 <h3 class="bold pull-left">
+                                Dog Food of Merica
+                        </h3>
+
+                                 <h5 class="italic pull-right">
+                                <span class="startDate">06/2012</span>
+                                <span class="endDate"> - 05/2018</span>
+                        </h5>
+
+                            </div>
+                             <h4>Food Tester</h4>
+
+                            <ul>
+                                <li>ate the food and said if it was yummy or not</li>
+                                <li>tried not to bite the other dogs</li>
+                            </ul>
+                        </section>
                     </div>
-                    <div>
-                         <h3><em>Master Sniffer</em>,
+                    <div class="container education-container">
+                        <div class="title">
+                             <h3>Education</h3>
 
-    Deer company
+                            <div class="keyline"></div>
+                        </div>
+                        <section class="item">
+                            <div class="section-header clearfix">
+                                 <h3 class="bold pull-left">
+                    University of Colorado
+            </h3>
 
-    </h3> <span class="tenure">2018-08 — 2020-09</span>
-                        <p></p>
-                        <ul>
-                            <li>sniff out deer poop</li>
-                            <li>eat the deer poop</li>
-                            <li>lick people after eating deer poop</li>
-                        </ul>
+                                 <h5 class="italic pull-right">
+            </h5>
+
+                            </div>
+                             <h4>Masters of Sniffing Wildlife Biology</h4>
+
+                        </section>
                     </div>
-                </section>
-                <hr>
-                <section id="education">
-                    <header> <span class="fa fa-lg fa-mortar-board"></span> 
-                         <h2>education</h2>
-
-                    </header>
-                    <div>
-                        
-<h3>
-
-University of Colorado
-
-</h3>
-                    </div>
-                </section>
-            </div>
+                </div>
+                </div>
         </main>
     </body>
 

@@ -1,44 +1,39 @@
-name: 'Lexi Amster'
-info:
-  brief: 'I am a very talented pupper who will happily lick your feet after eating deer poop.  I''ll lick your face too if the poop was very smelly.  But I''m cute anyway'
-contact:
+basics:
+  name: 'Lexi Amster'
   email: pup@puppers.com
   phone: 208-890-4567
-meta:
-  format: FRESH@^1.0.0-beta
-  modified: '2020-06-27T21:28:29.506Z'
-location:
-  city: 'puppy city'
-  region: co
-  code: '54321'
-employment:
-  history:
-    -
-      position: 'Food Tester'
-      employer: 'Dog Food of Merica'
-      start: 6/2/12
-      end: 5/2/18
-      keywords: []
-      highlights:
-        - 'ate the food and said if it was yummy or not'
-        - 'tried not to bite the other dogs '
-    -
-      position: 'Master Sniffer'
-      employer: 'Deer company'
-      start: 8/1/18
-      end: 9/1/20
-      keywords: []
-      highlights:
-        - 'sniff out deer poop'
-        - 'eat the deer poop'
-        - 'lick people after eating deer poop'
+  summary: 'I am a very talented pupper who will happily lick your feet after eating deer poop.  I''ll lick your face too if the poop was very smelly.  But I''m cute anyway'
+  location:
+    city: 'puppy city'
+    region: co
+    postalCode: '54321'
+  skills:
+    - sleeping
+    - 'licking  mom''s feet'
+    - 'finding all the poop to eat'
+    - 'chasing squirrels '
+work:
+  -
+    position: 'Master Sniffer'
+    company: 'Deer company'
+    startDate: 8/1/18
+    endDate: 9/1/20
+    highlights:
+      - 'sniff out deer poop'
+      - 'eat the deer poop'
+      - 'lick people after eating deer poop'
+  -
+    position: 'Food Tester'
+    company: 'Dog Food of Merica'
+    startDate: 6/2/12
+    endDate: 5/2/18
+    highlights:
+      - 'ate the food and said if it was yummy or not'
+      - 'tried not to bite the other dogs '
 education:
-  level: ""
-  history:
-    -
-      institution: 'University of Colorado'
-      end: 6/13
-      curriculum: []
-      summary: ""
-      area: 'Wildlife Biology'
-      studyType: 'Masters of Sniffing'
+  -
+    institution: 'University of Colorado'
+    area: 'Wildlife Biology'
+    studyType: 'Masters of Sniffing'
+    endDate: 6/13
+    courses: []

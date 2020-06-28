@@ -54,7 +54,7 @@ export default class DownloadController {
 
   async buildResume(req, res) {
     console.log("Triggered build resume")
-    exec("hackmyresume BUILD resume.json", (err) => {
+    exec("hackmyresume BUILD resume.json -t " + `node_modules/jsonresume-theme-macchiato`, (err) => {
       if (err) {
         throw err;
       }

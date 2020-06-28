@@ -1,40 +1,59 @@
 {
-  "basics": {
-    "email": "pup@puppers.com",
-    "phone": "208-890-4567",
-    "name": "Lexi Amster",
-    "summary": "I am a very talented pupper who will happily lick your feet after eating deer poop.  I'll lick your face too if the poop was very smelly.  But I'm cute anyway"
+  "name": "Lexi Amster",
+  "info": {
+    "brief": "I am a very talented pupper who will happily lick your feet after eating deer poop.  I'll lick your face too if the poop was very smelly.  But I'm cute anyway"
   },
-  "work": [
-    {
-      "company": "Dog Food of Merica",
-      "position": "Food Tester",
-      "startDate": "6/2/12",
-      "endDate": "5/2/18",
-      "highlights": [
-        "ate the food and said if it was yummy or not",
-        "tried not to bite the other dogs "
-      ]
-    },
-    {
-      "company": "Deer company",
-      "position": "Master Sniffer",
-      "startDate": "8/1/18",
-      "endDate": "9/1/20",
-      "highlights": [
-        "sniff out deer poop",
-        "eat the deer poop",
-        "lick people after eating deer poop"
-      ]
-    }
-  ],
-  "education": [
-    {
-      "institution": "University of Colorado",
-      "courses": [],
-      "endDate": "6/13",
-      "area": "Wildlife Biology",
-      "studyType": "Masters of Sniffing"
-    }
-  ]
+  "contact": {
+    "email": "pup@puppers.com",
+    "phone": "208-890-4567"
+  },
+  "meta": {
+    "format": "FRESH@^1.0.0-beta",
+    "modified": "2020-06-28T23:09:37.105Z"
+  },
+  "location": {
+    "city": "puppy city",
+    "region": "co",
+    "code": "54321"
+  },
+  "employment": {
+    "history": [
+      {
+        "position": "Master Sniffer",
+        "employer": "Deer company",
+        "start": "8/1/18",
+        "end": "9/1/20",
+        "keywords": [],
+        "highlights": [
+          "sniff out deer poop",
+          "eat the deer poop",
+          "lick people after eating deer poop"
+        ]
+      },
+      {
+        "position": "Food Tester",
+        "employer": "Dog Food of Merica",
+        "start": "6/2/12",
+        "end": "5/2/18",
+        "keywords": [],
+        "highlights": [
+          "ate the food and said if it was yummy or not",
+          "tried not to bite the other dogs "
+        ]
+      }
+    ]
+  },
+  "education": {
+    "level": "",
+    "history": [
+      {
+        "institution": "University of Colorado",
+        "end": "6/13",
+        "curriculum": [],
+        "summary": "",
+        "area": "Wildlife Biology",
+        "studyType": "Masters of Sniffing"
+      }
+    ]
+  }
 }
