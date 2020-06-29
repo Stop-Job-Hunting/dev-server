@@ -8,6 +8,7 @@ const Basic = new Schema(
     firstname: { type: String },
     lastname: { type: String },
     label: { type: String },
+    template: { type: String },
     picture: { type: String },
     email: { type: String },
     phone: { type: String },

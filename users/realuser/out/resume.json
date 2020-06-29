@@ -9,7 +9,7 @@
   },
   "meta": {
     "format": "FRESH@^1.0.0-beta",
-    "modified": "2020-06-28T23:28:49.564Z"
+    "modified": "2020-06-29T00:53:36.469Z"
   },
   "location": {
     "city": "puppy city",
@@ -33,8 +33,8 @@
       {
         "position": "Food Tester",
         "employer": "Dog Food of Merica",
-        "start": "6/2/12",
-        "end": "5/2/18",
+        "start": "2012-06-08T04:00:00.000Z",
+        "end": "2019-10-26T04:00:00.000Z",
         "keywords": [],
         "highlights": [
           "ate the food and said if it was yummy or not",

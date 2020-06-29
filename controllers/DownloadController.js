@@ -55,9 +55,14 @@ export default class DownloadController {
     // Their particular username to store with the data
     let username = await validationService.validateUser(req);
     if (username === "") return res.status(401);
+    // get the template that the user wants to use
+    let template = await dbContext.Basic.find({ username: username }).select('template -_id');
+    // console.log("basicRecord.template", template[0].template)
+    let templateName = template[0].template
+    // console.log(`hackmyresume BUILD users/${username}/resume.json users/${username}/out/resume.all -t node_modules/${templateName}`)
 
     exec(
-      `hackmyresume BUILD users/${username}/resume.json users/${username}/out/resume.all -t node_modules/jsonresume-theme-macchiato`,
+      `hackmyresume BUILD users/${username}/resume.json users/${username}/out/resume.all -t node_modules/${templateName}`,
       (err) => {
         if (err) {
           console.log("buildResumeError: ", err);
