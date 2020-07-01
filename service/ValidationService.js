@@ -1,31 +1,31 @@
-import { dbContext } from "../db/DbContext"
+import { dbContext } from "../db/DbContext";
 
 class ValidationService {
-
   async validateUser(req) {
     try {
       const isThereToken = req.cookies["session-token"];
 
       if (!isThereToken) {
-        return ("");
+        return "";
       }
       // grab their username - the server must do this
-      let session = await dbContext.Session.findOne({ token: isThereToken })
+      let session = await dbContext.Session.findOne({
+        token: isThereToken,
+      }).exec();
+
+      console.log("this is the session doc: ", session);
 
       if (!session) {
         //TODO: we should have some other thing here
-        console.error("Something is wrong - no user session")
-        return ("");
+        console.error("Something is wrong - no user session");
+        return "";
       }
 
-      // @ts-ignore
-      return (session.username);
-
+      return session.username;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 }
-
 
 export const validationService = new ValidationService();
