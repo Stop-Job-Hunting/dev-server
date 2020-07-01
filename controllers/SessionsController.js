@@ -2,7 +2,7 @@ import BaseController from "../utils/BaseController";
 import { dbContext } from "../db/DbContext";
 import express from "express";
 import { validationService } from "../service/ValidationService";
-import COOKIEURL from "../constants";
+import { COOKIEURL } from "../constants";
 const { nanoid } = require("nanoid");
 const bcrypt = require("bcrypt");
 

@@ -1,5 +1,5 @@
 import database from "./db/DbConfig";
-import CLIENTURL from "./constants";
+import { CLIENTURL } from "./constants";
 
 const express = require("express");
 const cors = require("cors");
