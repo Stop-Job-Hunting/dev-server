@@ -2,12 +2,13 @@ import BaseController from "../utils/BaseController";
 import { dbContext } from "../db/DbContext";
 import express from "express";
 import { validationService } from "../service/ValidationService";
+import COOKIEURL from "../constants";
 const { nanoid } = require("nanoid");
 const bcrypt = require("bcrypt");
 
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  domain: "localhost",
+  domain: COOKIEURL,
   secure: false,
   path: "/",
   // 30 days
@@ -127,6 +128,8 @@ export default class SessionsController {
         username: req.body.username,
         token: token,
       };
+
+      console.log("tokenData: ", tokenData);
 
       dbContext.Session.create(tokenData, (err, doc) => {
         if (err) console.log(err);
