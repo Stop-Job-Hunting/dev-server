@@ -42,7 +42,7 @@ export default class SessionsController {
         }
       );
 
-      res.clearCookie("session-token");
+      res.clearCookie("session-token", { domain: COOKIEURL });
       res.send("logout");
       res.status(200);
     } catch (error) {
