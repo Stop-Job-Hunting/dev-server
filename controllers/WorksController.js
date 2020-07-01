@@ -18,16 +18,20 @@ export default class WorksController {
   }
 
   async getAllWork(req, res, next) {
+    console.log("started get all work");
     try {
       // Their particular username to store with the data
       let username = await validationService.validateUser(req);
       if (username === "") return res.status(401);
+
+      console.log("validated user");
 
       // TODO:  if validateUser returns empty username, what to do
 
       dbContext.Work.find({ username: username }, function (err, documents) {
         if (err) throw console.error(err);
         // console.log("found the work!", documents);
+        console.log("sent find request to DB: ", documents);
         return res.send(documents);
       });
 

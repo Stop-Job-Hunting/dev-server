@@ -4,7 +4,7 @@ mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 mongoose.set("useUnifiedTopology", true);
-mongoose.connection.on("error", err => {
+mongoose.connection.on("error", (err) => {
   console.error("[DATABASE ERROR]:", err);
 });
 mongoose.connection.on("connection", () => {
@@ -16,7 +16,7 @@ export default class DbConnection {
     let status = 0;
     try {
       let status = await mongoose.connect(connectionstring);
-      console.log("[CONNECTION TO DB SUCCESSFUL]");
+      console.log("[STARTED DB CONNECTION]");
       return status;
     } catch (e) {
       console.error(
