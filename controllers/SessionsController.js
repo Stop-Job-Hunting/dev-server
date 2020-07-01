@@ -94,9 +94,12 @@ export default class SessionsController {
   }
 
   async register(req, res, next) {
+    console.log("start register request");
     try {
       const username = req.body.username;
       const password = req.body.password;
+
+      console.log("username: ", username);
 
       const hash = bcrypt.hashSync(password, 10);
 
@@ -107,21 +110,28 @@ export default class SessionsController {
         progress: 0,
         loggedIn: true,
       };
+
+      console.log("new user data: ", data);
       //TODO:  use the User model instead of Profile
-      dbContext.User.create(data).catch((err) => {
-        if (err) throw console.error(err);
+      dbContext.User.create(data, (err, doc) => {
+        if (err) console.log(err);
+        console.log("new user document: ", doc);
       });
 
       // Creating session
       const token = nanoid();
+
+      console.log("token: ", token);
 
       let tokenData = {
         username: req.body.username,
         token: token,
       };
 
-      dbContext.Session.create(tokenData).catch((err) => {
-        if (err) throw console.error(err);
+      dbContext.Session.create(tokenData, (err, doc) => {
+        if (err) console.log(err);
+
+        console.log("session doc: ", doc);
       });
 
       // Creating a cookie
