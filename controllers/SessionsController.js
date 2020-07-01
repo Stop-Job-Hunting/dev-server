@@ -30,7 +30,7 @@ export default class SessionsController {
     try {
       const token = req.cookies["session-token"];
 
-      await dbContext.Session.findOneAndUpdate(
+      dbContext.Session.findOneAndUpdate(
         { token: token },
         { loggedIn: false },
         function (err, session) {
