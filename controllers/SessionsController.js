@@ -100,7 +100,6 @@ export default class SessionsController {
 
       const hash = bcrypt.hashSync(password, 10);
 
-      console.log("password when register is:", hash);
       let data = {
         subs: `${Math.random()}`,
         hashPassword: hash,

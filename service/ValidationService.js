@@ -2,8 +2,11 @@ import { dbContext } from "../db/DbContext";
 
 class ValidationService {
   async validateUser(req) {
+    console.log("start validation service");
+
     try {
       const isThereToken = req.cookies["session-token"];
+      console.log("session cookie: ", isThereToken);
 
       if (!isThereToken) {
         return "";
