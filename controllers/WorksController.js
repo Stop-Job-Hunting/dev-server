@@ -42,6 +42,7 @@ export default class WorksController {
   }
 
   async addNewWork(req, res, next) {
+    console.log("putting in new item");
     try {
       // Their particular username to store with the data
       let username = await validationService.validateUser(req);
@@ -50,9 +51,12 @@ export default class WorksController {
       req.body.username = username;
       // console.log(req.body);
 
+      console.log(`validated ${username}`);
+
       // creates the new work item
       dbContext.Work.create(req.body, function (err, document) {
         if (err) throw console.error(err);
+        console.log("created document: ", document);
         res.send(document);
       });
 
