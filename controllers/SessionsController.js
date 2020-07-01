@@ -1,7 +1,7 @@
-import BaseController from "../utils/BaseController"
-import { dbContext } from "../db/DbContext"
-import express from "express"
-import { validationService } from "../service/ValidationService"
+import BaseController from "../utils/BaseController";
+import { dbContext } from "../db/DbContext";
+import express from "express";
+import { validationService } from "../service/ValidationService";
 const { nanoid } = require("nanoid");
 const bcrypt = require("bcrypt");
 
@@ -14,7 +14,6 @@ const COOKIE_OPTIONS = {
   expires: new Date(Date.now() + 60 * 60 * 24 * 1000 * 30),
 };
 
-
 export default class SessionsController {
   constructor() {
     this.router = express
@@ -23,7 +22,7 @@ export default class SessionsController {
       .get("/am-i-logged-in", this.amILoggedIn)
       .post("/login", this.login)
       .post("/register", this.register)
-      .post("/update-progress", this.updateProgress)
+      .post("/update-progress", this.updateProgress);
   }
 
   async logout(req, res, next) {
@@ -46,7 +45,7 @@ export default class SessionsController {
       res.send("logout");
       res.status(200);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 
@@ -90,11 +89,9 @@ export default class SessionsController {
         }
       });
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
-
-
 
   async register(req, res, next) {
     try {
@@ -132,11 +129,7 @@ export default class SessionsController {
       res.cookie("session-token", token, COOKIE_OPTIONS);
 
       res.status(200).send("ok");
-    } catch (error) {
-
-    }
-
-
+    } catch (error) {}
   }
 
   async amILoggedIn(req, res, next) {
@@ -149,53 +142,59 @@ export default class SessionsController {
         res.status(200).json(false);
       }
     } catch (error) {
-      console.log("somethings bad happening", error)
+      console.log("somethings bad happening", error);
     }
   }
 
   async validateUser(req, res) {
     try {
-
       const isThereToken = req.cookies["session-token"];
       if (!isThereToken) {
         return "";
       }
       // grab their username - the server must do this
-      await dbContext.Session.findOne({ token: isThereToken }, function (err, session) {
+      await dbContext.Session.findOne({ token: isThereToken }, function (
+        err,
+        session
+      ) {
         let username = "";
         if (err) throw console.error(err);
 
         // @ts-ignore
         if (!session || !session.loggedIn) {
-          return username
+          return username;
         }
 
         // Their particular username to store with the data
         // @ts-ignore
         username = session.username;
-        console.log("In validate User - username is", username)
+        console.log("In validate User - username is", username);
         // res.body = username;
-        return (username);
+        return username;
       });
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   async updateProgress(req, res, next) {
     // res.status(200)
     let username = await validationService.validateUser(req);
-    if (username === "") return (res.status(401))
+    if (username === "") return res.status(401);
 
-    await dbContext.User.find({ username: username }, function (err, documents) {
+    await dbContext.User.find({ username: username }, function (
+      err,
+      documents
+    ) {
       if (err) throw console.error(err);
 
       if (req.body.progress > documents[0].progress) {
-        dbContext.User.findByIdAndUpdate(documents[0]._id, req.body, { new: true });
+        dbContext.User.findByIdAndUpdate(documents[0]._id, req.body, {
+          new: true,
+        });
       }
       return res.send(documents);
     });
-    next()
+    next();
   }
 }
