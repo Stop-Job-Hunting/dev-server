@@ -1,3 +1,5 @@
+console.log("built server server.js");
+
 import database from "./db/DbConfig";
 import { CLIENTURL } from "./constants";
 
