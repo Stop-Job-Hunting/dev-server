@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:latest
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -14,5 +14,5 @@ RUN yarn
 
 RUN yarn global add hackmyresume 
 
-EXPOSE 3001
+EXPOSE 3000
 CMD [ "node", "./index.js" ]

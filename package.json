@@ -31,7 +31,8 @@
     "socket.io": "^2.3.0"
   },
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node ./index.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

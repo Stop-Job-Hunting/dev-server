@@ -17,7 +17,7 @@ export default class DbConnection {
     try {
       let status = await mongoose.connect(connectionstring);
       console.log("[STARTED DB CONNECTION]");
-      console.log("DB status: ", status);
+
       return status;
     } catch (e) {
       console.error(

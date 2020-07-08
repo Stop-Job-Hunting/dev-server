@@ -47,11 +47,15 @@ app.use("/works", new WorksController().router);
 app.use("/downloads", new DownloadController().router);
 
 app.get("/", (req, res) => {
+  console.log("start / get request");
+  console.log("port: ", port);
   res.status(200);
   res.send("I'm alive");
   res.end();
 });
 
-app.listen(port, () =>
-  console.log(`Example app listening at http://localhost:${port}`)
-);
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+  console.log("client URL: ", CLIENTURL);
+  console.log("port: ", port);
+});

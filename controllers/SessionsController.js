@@ -139,8 +139,11 @@ export default class SessionsController {
   }
 
   async amILoggedIn(req, res, next) {
+    console.log("start amiloggedin");
     try {
       const isThereToken = req.cookies["session-token"];
+
+      console.log("is there token: ", isThereToken);
 
       if (isThereToken) {
         res.status(200).json(true);
