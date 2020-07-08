@@ -9,7 +9,7 @@
   },
   "meta": {
     "format": "FRESH@^1.0.0-beta",
-    "modified": "2020-06-30T19:06:48.414Z"
+    "modified": "2020-07-08T20:39:31.022Z"
   },
   "location": {
     "city": "puppy city",
@@ -18,6 +18,16 @@
   },
   "employment": {
     "history": [
+      {
+        "position": "Cat catcher",
+        "employer": "Cat company",
+        "current": true,
+        "start": "2020-06-01T19:21:39.000Z",
+        "keywords": [],
+        "highlights": [
+          "I was nice to the kitties"
+        ]
+      },
       {
         "position": "Master Sniffer",
         "employer": "Deer company",

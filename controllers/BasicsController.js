@@ -95,6 +95,7 @@ export default class BasicsController {
       (err, document) => {
         if (err) throw err;
         console.log(document);
+        return res.send(document);
       }
     );
   }

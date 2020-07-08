@@ -14,6 +14,12 @@ basics:
     - 'chasing squirrels '
 work:
   -
+    position: 'Cat catcher'
+    company: 'Cat company'
+    startDate: '2020-06-01T19:21:39.000Z'
+    highlights:
+      - 'I was nice to the kitties'
+  -
     position: 'Master Sniffer'
     company: 'Deer company'
     startDate: 8/1/18
