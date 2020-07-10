@@ -1,0 +1,46 @@
+{
+  "name": "koby conrad",
+  "info": {
+    "brief": "Wow many summary"
+  },
+  "contact": {
+    "email": "koby@roomservice.dev",
+    "phone": "2084224536"
+  },
+  "meta": {
+    "format": "FRESH@^1.0.0-beta",
+    "modified": "2020-07-10T21:18:13.557Z"
+  },
+  "location": {
+    "city": "boise",
+    "region": "id",
+    "code": "83702"
+  },
+  "employment": {
+    "history": [
+      {
+        "position": "j",
+        "employer": "j",
+        "start": "2020-06-28T21:10:46.000Z",
+        "end": "2020-06-29T21:10:46.000Z",
+        "keywords": [],
+        "highlights": [
+          "whoa highlights"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "level": "",
+    "history": [
+      {
+        "institution": "d",
+        "end": "2020-06-29T21:11:07.000Z",
+        "curriculum": [],
+        "summary": "",
+        "area": "d",
+        "studyType": "d"
+      }
+    ]
+  }
+}

@@ -51,28 +51,33 @@ export default class DownloadController {
   }
 
   async buildResume(req, res) {
-    console.log("Triggered build resume")
+    console.log("Triggered build resume");
     // Their particular username to store with the data
     let username = await validationService.validateUser(req);
+    console.log("username: ", username);
     if (username === "") return res.status(401);
+
     // get the template that the user wants to use
-    let template = await dbContext.Basic.find({ username: username }).select('template -_id');
-    // console.log("basicRecord.template", template[0].template)
-    let templateName = template[0].template
-    // console.log(`hackmyresume BUILD users/${username}/resume.json users/${username}/out/resume.all -t node_modules/${templateName}`)
+    dbContext.Basic.find({ username: username }, (err, doc) => {
+      if (err) console.log(err);
+      // console.log("Tem", doc[0].template);
 
-    exec(
-      `hackmyresume BUILD users/${username}/resume.json users/${username}/out/resume.all -t node_modules/${templateName}`,
-      (err) => {
-        if (err) {
-          console.log("buildResumeError: ", err);
+      let templateName = doc[0].template;
+      console.log("templateName: ", templateName);
+
+      exec(
+        `hackmyresume BUILD users/${username}/resume.json users/${username}/out/resume.all -t node_modules/${templateName}`,
+        (err) => {
+          if (err) {
+            console.log("buildResumeError: ", err);
+          }
+          console.log("success");
+
+          console.log("send file");
+          const file = `${__dirname}/../users/${username}/out/resume.pdf.html`;
+          res.download(file);
         }
-        console.log("success");
-
-        console.log("send file");
-        const file = `${__dirname}/../users/${username}/out/resume.pdf.html`;
-        res.download(file);
-      }
-    );
+      );
+    });
   }
 }

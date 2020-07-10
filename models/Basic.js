@@ -24,7 +24,7 @@ const Basic = new Schema(
       network: { type: String },
       username: { type: String },
       url: { type: String },
-    }
+    },
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );

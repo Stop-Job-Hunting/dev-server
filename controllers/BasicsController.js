@@ -41,6 +41,7 @@ export default class BasicsController {
 
       dbContext.Basic.find({ username: username }, function (err, documents) {
         if (documents.length < 1) {
+          console.log("create new");
           dbContext.Basic.create(req.body, function (err, document) {
             if (err) throw console.error(err);
             console.log("created doc: ", document);
@@ -48,6 +49,7 @@ export default class BasicsController {
             return res.send(documents);
           });
         } else {
+          console.log("update body: ", req.body);
           dbContext.Basic.findOneAndUpdate(
             { username: username },
             req.body,
