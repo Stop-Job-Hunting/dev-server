@@ -1,0 +1,48 @@
+name: 'koby conrad'
+info:
+  brief: 'Very summary, much whoa. will this uhm'
+contact:
+  email: koby@roomservice.dev
+  phone: '2084224536'
+meta:
+  format: FRESH@^1.0.0-beta
+  modified: '2020-07-16T22:37:55.003Z'
+location:
+  city: SF
+  region: CA
+  code: '94117'
+employment:
+  history:
+    -
+      position: 'Marketing Director'
+      employer: 'Room Service'
+      start: '2020-07-01T07:00:00.000Z'
+      end: '2020-07-10T07:00:00.000Z'
+      keywords: []
+      highlights:
+        - 'I did lots of marketing things!'
+    -
+      position: 'Marketing Director'
+      employer: 'Boise Digital'
+      start: '2020-06-01T07:00:00.000Z'
+      end: '2020-07-04T07:00:00.000Z'
+      keywords: []
+      highlights:
+        - 'Okay this is my work highlight. Cool.'
+education:
+  level: ""
+  history:
+    -
+      institution: 'U Idaho'
+      end: '2020-06-13T21:11:07.000Z'
+      curriculum: []
+      summary: ""
+      area: 'General Studies'
+      studyType: 'Bachelor''s'
+    -
+      institution: GGU
+      end: '2020-07-11T07:00:00.000Z'
+      curriculum: []
+      summary: ""
+      area: Management
+      studyType: MS
