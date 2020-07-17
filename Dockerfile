@@ -1,4 +1,4 @@
-FROM node:14.5.0-alpine
+FROM node:latest
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -6,24 +6,51 @@ WORKDIR /usr/src/app
 # Bundle app source
 COPY . .
 
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 
 RUN rm -rf node_modules
 
-# install python 3 and attempt not to cry
-RUN apk add --no-cache python python-dev python3 python3-dev \
-    linux-headers build-base libffi libffi-dev zlib zlib-dev jpeg-dev freetype-dev bash git ca-certificates && \
-    python3 -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --upgrade pip setuptools && \
-    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
-    rm -r /root/.cache
-RUN apk add --no-cache tzdata && \
-    cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && \
-    echo "America/Sao_Paulo" > /etc/timezone 
-
-RUN pip3 install wheel
-RUN pip3 install WeasyPrint
+# Install Chromium dependencies
+RUN apt-get update && \
+    apt-get install -yq \
+        ca-certificates \
+        fonts-liberation \
+        gconf-service \
+        libappindicator1 \
+        libappindicator3-1 \
+        libasound2 \
+        libatk1.0-0 \
+        libc6 \
+        libcairo2 \
+        libcups2 \
+        libdbus-1-3 \
+        libexpat1 \
+        libfontconfig1 \
+        libgcc1 \
+        libgconf-2-4 \
+        libgdk-pixbuf2.0-0 \
+        libglib2.0-0 \
+        libgtk-3-0 \
+        libnspr4 \
+        libnss3 \
+        libpango-1.0-0 \
+        libpangocairo-1.0-0 \
+        libstdc++6 \
+        libx11-6 \
+        libx11-xcb1 \
+        libxcb1 \
+        libxcomposite1 \
+        libxcursor1 \
+        libxdamage1 \
+        libxext6 \
+        libxfixes3 \
+        libxi6 \
+        libxrandr2 \
+        libxrender1 \
+        libxss1 \
+        libxtst6 \
+        lsb-release \
+        xdg-utils wget
 
 RUN yarn
 
