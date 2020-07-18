@@ -1,0 +1,46 @@
+{
+  "name": "Judy Amster",
+  "info": {
+    "brief": "did stuff"
+  },
+  "contact": {
+    "email": "judy@me.com",
+    "phone": "2020002200"
+  },
+  "meta": {
+    "format": "FRESH@^1.0.0-beta",
+    "modified": "2020-07-14T20:02:16.832Z"
+  },
+  "location": {
+    "city": "Bosie",
+    "region": "Id",
+    "code": "83714"
+  },
+  "employment": {
+    "history": [
+      {
+        "position": "work",
+        "employer": "here",
+        "start": "2020-04-27T04:00:00.000Z",
+        "end": "2020-07-18T04:00:00.000Z",
+        "keywords": [],
+        "highlights": [
+          "highlights"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "level": "",
+    "history": [
+      {
+        "institution": "uofu",
+        "end": "2020-06-29T04:00:00.000Z",
+        "curriculum": [],
+        "summary": "",
+        "area": "somethign",
+        "studyType": "BA"
+      }
+    ]
+  }
+}

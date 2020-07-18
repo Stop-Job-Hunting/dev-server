@@ -5,6 +5,7 @@ import BuildJsonString from "../buildJsonString";
 import fs from "fs";
 import { exec } from "child_process";
 import mkdirp from "mkdirp";
+import pdfFrom from "pdf-from";
 
 export default class DownloadController {
   constructor() {
@@ -65,19 +66,48 @@ export default class DownloadController {
       let templateName = doc[0].template;
       console.log("templateName: ", templateName);
 
+      // -t node_modules/${templateName}
       exec(
-        `hackmyresume BUILD users/${username}/resume.json TO users/${username}/out/resume.all ${templateName}`,
-
-        // `hackmyresume BUILD users/${username}/resume.json TO users/${username}/out/resume.all -t node_modules/${templateName}`,
-        (err) => {
+        `hackmyresume BUILD users/${username}/resume.json TO users/${username}/out/resume.all`,
+        (err, output) => {
+          console.log(output);
           if (err) {
             console.log("buildResumeError: ", err);
           }
-          console.log("success");
 
-          console.log("send file");
-          const file = `${__dirname}/../users/${username}/out/resume.pdf.html`;
-          res.download(file);
+          let applicationPdf;
+
+          fs.readFile(
+            `users/${username}/out/resume.pdf.html`,
+            "utf8",
+            async (err, data) => {
+              if (err) {
+                console.log(err);
+              }
+              applicationPdf = await pdfFrom.html(data);
+
+              if (applicationPdf && Buffer.isBuffer(applicationPdf)) {
+                //   res.type("application/pdf");
+                //   res.download(applicationPdf);
+                fs.writeFile(
+                  `users/${username}/resume.pdf`,
+                  applicationPdf,
+                  (err) => {
+                    const file = `${__dirname}/../users/${username}/resume.pdf`;
+                    res.download(file);
+                  }
+                );
+              } else {
+                res.status(404).send("PDF not found");
+              }
+            }
+          );
+
+          // console.log("success");
+
+          // console.log("send file");
+          // const file = `${__dirname}/../users/${username}/out/resume.pdf`;
+          // res.download(file);
         }
       );
     });
