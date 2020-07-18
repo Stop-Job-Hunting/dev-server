@@ -37,31 +37,31 @@ export default class BasicsController {
       if (username === "") return res.status(401);
 
       req.body.username = username;
-      console.log(req.body);
+      console.log("Entering addNewBasic - req.body is", req.body);
 
       dbContext.Basic.find({ username: username }, function (err, documents) {
         if (documents.length < 1) {
-          console.log("create new");
+          console.log("create new basic record");
           dbContext.Basic.create(req.body, function (err, document) {
             if (err) throw console.error(err);
             console.log("created doc: ", document);
             // res.send(document);
-            return res.send(documents);
+            return res.send(document);
           });
         } else {
-          console.log("update body: ", req.body);
+          console.log("Not new, update body with: ", req.body);
           dbContext.Basic.findOneAndUpdate(
             { username: username },
             req.body,
             { new: true },
             (err, document) => {
               if (err) throw err;
-              console.log("updated doc: ", document);
-              return res.send(documents);
+              console.log("Resulting document is: ", document);
+              return res.send(document);
             }
           );
         }
-        console.log("found the basic!", documents);
+        // console.log("found the basic!", documents);
       });
     } catch (error) {
       next(error);
