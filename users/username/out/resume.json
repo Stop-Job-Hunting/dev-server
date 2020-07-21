@@ -1,0 +1,116 @@
+{
+  "name": "Koby Conrad",
+  "info": {
+    "brief": "Whoa man this is a new paragraph. Crazy shit right? This is more stuff that I've added to this crazy shit."
+  },
+  "contact": {
+    "email": "koby@roomservice.dev",
+    "phone": "2084224536"
+  },
+  "meta": {
+    "format": "FRESH@^1.0.0-beta",
+    "modified": "2020-07-21T17:21:37.874Z"
+  },
+  "location": {
+    "city": "Boise",
+    "region": "ID",
+    "code": "83702"
+  },
+  "employment": {
+    "history": [
+      {
+        "current": true,
+        "keywords": [],
+        "highlights": [
+          "Write your work highlights here! Led a team of people, grew revenue, was a team player, etc.."
+        ]
+      },
+      {
+        "current": true,
+        "keywords": [],
+        "highlights": []
+      },
+      {
+        "position": "Software Engineer",
+        "employer": "Segment",
+        "start": "March 2018",
+        "end": "April 2019",
+        "keywords": [],
+        "highlights": []
+      }
+    ]
+  },
+  "education": {
+    "level": "",
+    "history": [
+      {
+        "institution": "Colorado State University",
+        "end": "May, 1988",
+        "curriculum": [],
+        "summary": "",
+        "area": "Computer Science",
+        "studyType": "BS"
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "institution": "Boise State University",
+        "end": "May 2010",
+        "curriculum": [],
+        "summary": "",
+        "area": "Education",
+        "studyType": "BA"
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      },
+      {
+        "curriculum": [],
+        "summary": ""
+      }
+    ]
+  }
+}

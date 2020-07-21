@@ -68,7 +68,7 @@ export default class DownloadController {
 
       // -t node_modules/${templateName}
       exec(
-        `hackmyresume BUILD users/${username}/resume.json TO users/${username}/out/resume.all`,
+        `hackmyresume BUILD users/${username}/resume.json TO users/${username}/out/resume.all ${templateName}`,
         (err, output) => {
           console.log(output);
           if (err) {
