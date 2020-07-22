@@ -9,7 +9,7 @@
   },
   "meta": {
     "format": "FRESH@^1.0.0-beta",
-    "modified": "2020-07-21T17:21:37.874Z"
+    "modified": "2020-07-22T19:39:35.888Z"
   },
   "location": {
     "city": "Boise",
@@ -110,6 +110,18 @@
       {
         "curriculum": [],
         "summary": ""
+      }
+    ]
+  },
+  "skills": {
+    "sets": [
+      {
+        "name": "Skills",
+        "skills": [
+          "Coding ",
+          "javascript",
+          "debugging "
+        ]
       }
     ]
   }

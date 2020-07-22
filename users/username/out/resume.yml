@@ -7,10 +7,13 @@ basics:
     city: Boise
     region: ID
     postalCode: '83702'
-  skills:
-    - 'Coding '
-    - javascript
-    - 'debugging '
+skills:
+  -
+    keywords:
+      - 'Coding '
+      - javascript
+      - 'debugging '
+    name: Skills
 work:
   -
     highlights:

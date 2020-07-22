@@ -21,7 +21,7 @@ function BuildJsonString(object) {
   resumeJsonObj.basics.summary = object.basics.summary;
   resumeJsonObj.basics.location = object.basics.location || {};
   resumeJsonObj.basics.summary = object.basics.summary;
-  resumeJsonObj.basics.skills = object.basics.skills;
+  resumeJsonObj.skills = [{ keywords: object.basics.skills }];
 
   //Build work
   resumeJsonObj.work = [];
@@ -58,6 +58,7 @@ function BuildJsonString(object) {
 
     resumeJsonObj.education.push(currentEduItem);
   }
+  console.log(resumeJsonObj);
 
   return resumeJsonObj;
   // return JSON.stringify(resumeJsonObj);
