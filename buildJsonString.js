@@ -1,4 +1,15 @@
 function BuildJsonString(object) {
+  let formattedDate = function (dateString) {
+    let dateObj = new Date(dateString);
+    let month = dateObj.getUTCMonth() + 1; //months from 1-12
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+
+    let newdate = month + "/" + day + "/" + year;
+
+    return newdate;
+  };
+
   const resumeJsonObj = { basics: {} };
 
   // build basic
@@ -35,6 +46,12 @@ function BuildJsonString(object) {
     // currentWorkItem.city =  object.work[i].city;
     // currentWorkItem.state = object.work[i].state;
     currentWorkItem.startDate = object.work[i].startDate;
+
+    // console.log("unformatted date = ", object.work[i].startDate);
+    // console.log(
+    //   "new json date obj = ",
+    //   formattedDate(object.work[i].startDate)
+    // );
     currentWorkItem.endDate = object.work[i].endDate;
     currentWorkItem.highlights = object.work[i].highlights;
 
